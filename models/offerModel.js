@@ -2,31 +2,22 @@
 var mongoose = require('mongoose');
 
 
-const UseSchema = mongoose.model('User', new mongoose.Schema({
+const offerSchema = mongoose.model('Offer', new mongoose.Schema({
 
-  nom: {
+  title: {
     // trim: true accep
     type: String, required: true, trim: true
   },
 
-  prenom : {
+  description : {
     // trim: true accep
     type: String, required: true, trim: true
   },
 
-  email: {
-    // trim: true accep
+  type: {
     type: String, required: true, trim: true
   },
 
-  password: {
-    // trim: true accep
-    type: String, required: true, trim: true
-  }
+}))
 
-})
-
-)
-
-
-module.exports = UseSchema;
+module.exports = offerSchema;

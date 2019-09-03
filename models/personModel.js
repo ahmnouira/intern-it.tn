@@ -1,9 +1,7 @@
 // import mongoose
 var mongoose = require('mongoose');
 
-
 const PersonSchema = mongoose.model('Person', new mongoose.Schema({
-
 
   nom: {
     // trim: true accep

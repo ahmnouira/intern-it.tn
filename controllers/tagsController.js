@@ -1,20 +1,18 @@
-const PersonModel = require('../models/personModel');
+const TagModel = require('../models/TagModel');
 
 module.exports = {
 
 create : function(req, res) {
     console.log(req.body)
-    const person = new PersonModel({
-      nom : req.body.nom,
-      cin : req.body.cin
-
+    const tag = new TagModel({
+      nom : req.body.nom
     })
 
-    person.save(function(err) {
+    tag.save(function(err) {
       if (err) {
       res.json({status: "error", msg: "vous avez un erreur"  + err })
     } else {
-      res.json({status: "OK", mgs: "personelle added: " + req.body.nom})
+      res.json({status: "OK", mgs: " Tag Added: " + req.body.nom})
     }
   });
 },
@@ -22,21 +20,21 @@ create : function(req, res) {
 get: function(req, res) {
 
       if (req.params.id) {
-      PersonModel.find({_id:req.params.id} , function(err, person){
+      TagModel.find({_id:req.params.id} , function(err, tag){
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
         } else {
-        res.json(person);
+        res.json(tag);
       }
       })
 
     } else {
-      PersonModel.find({}, function(err, persons){
-        console.log(persons);
+      TagModel.find({}, function(err, tags){
+        console.log(tags);
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
         } else {
-        res.json(persons);
+        res.json(tags);
       }
       })
     }
@@ -44,9 +42,9 @@ get: function(req, res) {
 
 delete: function(req, res){
 
-      PersonModel.deleteOne({_id:req.params.id},function(err){
+      TagModel.deleteOne({_id:req.params.id},function(err){
         if(!err){
-          res.json({status:"ok", msg: "user deleated"})
+          res.json({status:"ok", msg: "tag deleated"})
         } else {
           res.json({status:"error", msg:"error"})
         }

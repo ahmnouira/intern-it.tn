@@ -1,9 +1,10 @@
 const UserModel = require('../models/userModels');
 
+
 module.exports = {
 
   //create user
-  create : function(req, res) {
+create : function(req, res) {
     console.log(req.body)
     const user = new UserModel ({
 
