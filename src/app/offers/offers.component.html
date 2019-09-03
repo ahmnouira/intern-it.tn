@@ -1,0 +1,41 @@
+<div class="row m-2">
+  <div class="col-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+        Ahmed Nouira
+        <p> a la recheche un stage </p>
+        </div>
+        <div class="card-text">
+          <a href="#" class="btn btn-block btn-primary"> Mon Profil </a>
+        </div>
+       </div>
+       </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card  mb-3" *ngFor="let offer of offers">
+          <div class="card-body">
+            <div class="card-title">
+            {{offer.title}}
+            </div>
+            <div class="card-text">
+              {{ offer.description}}
+            </div>
+          </div>
+          </div>
+          </div>
+
+          <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+            stats
+            </div>
+            <div class="card-text">
+              states here
+              </div>
+              </div>
+              </div>
+              </div>
+</div>
