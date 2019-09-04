@@ -1,6 +1,6 @@
 // import mongoose
 var mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
 
 const UseSchema = mongoose.model('User', new mongoose.Schema({
 
@@ -25,8 +25,9 @@ const UseSchema = mongoose.model('User', new mongoose.Schema({
   }
 
 })
-
-)
-
+.pre('save', function(next){
+  this.password=bcrypt.hashSync(this.password, 10);
+  next();
+}))
 
 module.exports = UseSchema;

@@ -1,20 +1,23 @@
 // import mongoose
 var mongoose = require('mongoose');
+const AdminModel = require('./adminModel');
 
-const EtudiantSchema = mongoose.model('Etudiant', new mongoose.Schema({
+const Etudiant = AdminModel.discriminator('Etudiant', new mongoose.Schema({
 
   nom: {
     type: String, required: true, trim: true
   },
 
-  email: {
-    // trim: true accep
-    type: String, required: true
+  prenom: {
+    type: String, required: true, trim: true
   },
 
   tel: {
-    type: Number 
+    type: Number
   }
 
+  
+
 }))
-module.exports = EtudiantSchema ;
+
+module.exports =  mongoose.model('Etudiant');

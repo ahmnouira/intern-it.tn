@@ -9,6 +9,7 @@ post : function(req, res) {
       password: req.body.password,
       nom: req.body.nom,
       tel: req.body.tel,
+      prenom: req.body.prenom
     })
 
     etudiant.save(function(err) {
