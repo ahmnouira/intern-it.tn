@@ -7,7 +7,8 @@ post : function(req, res) {
     const director = new DirectorModel({
       email : req.body.email,
       password : req.body.password,
-      cin: Number(req.body.cin)
+      cin: Number(req.body.cin),
+      offer: req.body.offer
     })
 
     director.save(function(err) {
@@ -21,7 +22,7 @@ post : function(req, res) {
 
 get: function(req, res) {
       if (req.params.id) {
-      DirectorModel.find({_id:req.params.id} , function(err, director){
+      DirectorModel.find(({_id:req.params.id}).populate('Offer').exec, function(err, director){
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
         } else {

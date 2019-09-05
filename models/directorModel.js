@@ -1,4 +1,4 @@
-// this is the Director for the enterpise account 
+// this is the Director for the enterpise account
 
 // import mongoose
 var mongoose = require('mongoose');
@@ -19,6 +19,11 @@ const Director = AdminModel.discriminator('Director', new mongoose.Schema({
   cin: {
     type: Number, required: true, trim: true
   },
+
+  offer: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Offer'
+  }]
 
 }),
 );
