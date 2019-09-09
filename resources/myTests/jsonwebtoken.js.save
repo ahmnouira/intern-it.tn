@@ -1,0 +1,20 @@
+var jwt = require('jsonwebtoken')
+
+/*
+// synchrouns Sign  with HCDSA SHA256 
+var token = jwt.sign({foo: 'bar'}, "fdfdfdf")
+
+console.log(token)
+*/ 
+
+
+jwt.sign({foo: 'bar' }, "password",  function(err, token) {
+if( err) {throw err; }
+console.log(token);
+});
+
+
+
+
+
+

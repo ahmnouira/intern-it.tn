@@ -1,35 +1,20 @@
 // import express module
- const express = require('express');
-
-const bodyParser = require('body-parser');
+const express = require('express');
+var config = require('./config/config');
 const db = require('./models/db');
-
-// router_privée
-const userRoute = require('./routes/userRoute');
-const personRoute = require('./routes/personRoute');
-const adminRoute = require('./routes/adminRoute');
-const etudiantRoute = require('./routes/etudiantRoute');
-const directorRoute = require('./routes/directorRoute');
-const offersRoute = require('./routes/offersRoute');
+const host = '0.0.0.0';
 
 // create express instance
-const app = express();
+var app = express();
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+// set the port number based on the environment variable,
+// if it exists. Otherwise, use port 5000
+app.set('port', process.env.PORT || 4000);
+app.set('SECRET_KEY', 'secret');
 
-// parse application/json
-app.use(bodyParser.json())
-
-app.use('/user', userRoute);
-app.use('/person', personRoute);
-app.use('/api/admin', adminRoute);
-app.use('/api/etudiant',etudiantRoute);
-app.use('/api/director', directorRoute);
-app.use('/api/offers', offersRoute);
+app = config(app);
 
 // run server at a specific port
- app.listen(3000, function(){
-   // print this mission
-   console.log('server running at: http://localhost:3000');
- });
+app.listen(app.get('port'), host, function(){
+  console.log('Running on http://'+ host + ':%d/ (Press CTRL+C to quit)', app.get('port'));
+});

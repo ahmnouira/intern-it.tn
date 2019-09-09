@@ -2,28 +2,32 @@
 
 // import mongoose
 var mongoose = require('mongoose');
-const AdminModel = require('./adminModel');
+const UsersModel = require('./usersModel');
 
+const Director = UsersModel.discriminator('Director', new mongoose.Schema({
 
-const Director = AdminModel.discriminator('Director', new mongoose.Schema({
-
-/* email: {
-    type: String, required: true, trim: true
+  secret_id: {
+    type: String , required: true
   },
 
-  password: {
-    // trim: true accep
-    type: String, required: true, trim: true
-  }, */
+  nb_offers: {
+  type:Number, 'default': 0
+},
 
-  cin: {
-    type: Number, required: true, trim: true
-  },
-
-  offer: [{
+  offers: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Offer'
+    ref: 'offer',
+    candidate: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'candidate'
+    }]
+  }],
+
+  files: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'file'
   }]
+
 
 }),
 );

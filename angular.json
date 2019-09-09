@@ -23,8 +23,12 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
+=======
+              "src/styles.css"
+>>>>>>> 2619da916166a8d442525fb62c4752f7a842cc5c
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -134,4 +138,8 @@
     }
   },
   "defaultProject": "stagesIT"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2619da916166a8d442525fb62c4752f7a842cc5c

@@ -1,0 +1,12 @@
+{
+	"name": "myTests",
+	"version": "1.0.0",
+	"dependencies": {
+<<<<<<< HEAD
+		"jsonwebtoken": "^8.5.1",
+		"node-notifier": "^5.4.3"
+=======
+		"jsonwebtoken": "^8.5.1"
+>>>>>>> 4d17e13652817e78f0c14c5cedab25cca0080b0f
+	}
+}

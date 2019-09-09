@@ -2,9 +2,15 @@ const offersController = require('../controllers/offerController');
 
 const router = require('express').Router();
 
-router.post('/', offersController.post);
-router.get('/', offersController.get);
-router.get('/:id', offersController.get);
-router.delete('/:id', offersController.delete)
+module.exports = function(app) {
 
-module.exports = router;
+  router.post('/api/offers/', offersController.post);
+  router.get('/api/offers/', offersController.get);
+  router.get('/api/offers/:id', offersController.get);
+  router.delete('/api/offers/:id', offersController.delete);
+  router.delete('/api/offers', offersController.delete);
+  //router.put('/api/offers/:id' ,offersController.put);
+  router.put('/api/offers/:id/add-candidate', offersController.addCandidate);
+  app.use(router);
+
+}
