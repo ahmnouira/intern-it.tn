@@ -1,0 +1,110 @@
+<div class="chute chute-center">
+  <div class="allcp-form theme-primary mw1000 center-block pb175">
+
+      <div class="panel">
+          <form method="post" action="http://myadmin-html.axiomthemes.com/" id="allcp-form">
+             <div class="panel-heading">
+                <div class="panel-title">
+                    Add New Director ?
+                      </div>
+                        </div>
+                          <div class="panel-body">
+
+                            <!--email  -->
+
+                            <div class="section">
+                              <h4> Email: </h4>
+                              <label for="useremail" class="field prepend-icon">
+                                  <input type="email" name="useremail" id="useremail" class="gui-input"
+                                         placeholder="Email address" required>
+                                            <span class="field-icon">
+                                              <i class="fa fa-envelope"></i>
+                                          </span>
+                                  </label>
+                              </div>
+
+
+                            <!-- password -->
+                            <div class="section row mhn10">
+                              <div class="col-md-6 ph10 mb5">
+                              <h4> Password: </h4>
+                                <label for="password" class="field prepend-icon">
+                                    <input type="password" name="password" id="password" class="gui-input"
+                                           placeholder="Create password" required>
+                                    <span class="field-icon">
+                                      <i class="fa fa-lock"></i>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 ph10 mb5">
+                              <h4> Repeat Password:</h4>
+                                <label for="repeatPassword" class="field prepend-icon">
+                                    <input type="password" name="repeatPassword" id="repeatPassword"
+                                           class="gui-input" placeholder="Repeat password" required>
+                                    <span class="field-icon">
+                                      <i class="fa fa-unlock"></i>
+                                    </span>
+                                </label>
+                            </div>
+                          </div>
+
+                            <!-- sercret_id -->
+                            <div class="section row mhn10">
+                              <div class="col-md-6 ph10 mb5">
+                              <h4> SecretKey: </h4>
+                                <label for="secret_key" class="field prepend-icon">
+                                    <input type="password" name="secret_key" id="secret_key" class="gui-input"
+                                           placeholder="Create SecretKey" required>
+                                    <span class="field-icon">
+                                      <i class="fa fa-lock"></i>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 ph10 mb5">
+                              <h4> Repeat SecretKey:</h4>
+                                <label for="repeat_secret_key" class="field prepend-icon">
+                                    <input type="password" name="repeat_secret_key" id="repeat_secret_key"
+                                           class="gui-input" placeholder="Repeat SecretKey" required>
+                                    <span class="field-icon">
+                                      <i class="fa fa-unlock"></i>
+                                    </span>
+                                </label>
+                            </div>
+                          </div>
+
+
+                              <!-- select offer to the director  -->
+                                <div class="section">
+                                  <h4> Select Offer: </h4>
+                                    <label class="field select">
+                                        <select id="language" name="language">
+                                            <option value="">Select The Offer...</option>
+                                            <option value="dev_mobile">dev Mobile</option>
+                                            <option value="dev_app">dev app </option>
+                                        </select>
+                                        <i class="arrow double"></i>
+                                    </label>
+                                </div>
+
+                                <!-- files of director -->
+                                <div class="section" id="spy2">
+                                    <h4>Upload File:</h4>
+                                    <label for="file1" class="field prepend-icon file file-fw">
+                                        <span class="button">Choose File</span>
+                                        <input type="file" class="gui-file" name="upload1" id="file1"
+                                               onChange="document.getElementById('uploader1').value = this.value;">
+                                        <input type="text" class="gui-input" id="uploader1" placeholder="File Select">
+                                    </label>
+                                </div>
+                            </div>
+
+                  <div class="panel-footer text-right">
+                      <button type="submit" class="btn btn-bordered btn-primary mb5"> Validate Form</button>
+                      <button type="reset" class="btn btn-bordered mb5"> Cancel</button>
+                    </div>
+          </form>
+      </div>
+    </div>
+</div>

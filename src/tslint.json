@@ -12,6 +12,9 @@
             "element",
             "app",
             "kebab-case"
-        ]
+        ],
+
+        "no-duplicated-varibale": true,
+        "no-unused-varibale": true
     }
 }

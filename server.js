@@ -3,7 +3,6 @@ const express = require('express');
 var config = require('./config/config');
 const db = require('./models/db');
 const host = '0.0.0.0';
-
 // create express instance
 var app = express();
 
@@ -13,6 +12,10 @@ app.set('port', process.env.PORT || 4000);
 app.set('SECRET_KEY', 'secret');
 
 app = config(app);
+
+
+
+
 
 // run server at a specific port
 app.listen(app.get('port'), host, function(){

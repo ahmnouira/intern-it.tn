@@ -7,7 +7,6 @@ var newUser = new usersModel({
   password: "pass1"
 });
 
-
 module.exports = {
 
 get: function(req, res) {

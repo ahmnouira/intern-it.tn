@@ -1,0 +1,413 @@
+
+<header class="navbar navbar-fixed-top">
+
+  <!-- logo-->
+  <div class="navbar-logo-wrapper dark bg-dark">
+   <a class="navbar-logo-image" href="#">
+    <img src="assets/img/logo.png" alt="" class="sb-l-o-logo">
+    <img src="assets/img/logo_small.png" alt="" class="sb-l-m-logo">
+   </a>
+  </div>
+
+  <!--serach input -->
+  <span id="sidebar_left_toggle" class="ad ad-lines navbar-nav navbar-left"></span>
+  <form class="navbar-form navbar-left search-form square" role="search">
+   <div class="input-group add-on">
+    <input type="text" class="form-control" placeholder="Search" onfocus="this.placeholder=''" onblur="this.placeholder='Search'">
+    <div class="input-group-btn">
+     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+   </div>
+  </form>
+
+
+<!-- img profile at top right -->
+  <ul class="nav navbar-nav navbar-right">
+   <li class="dropdown dropdown-fuse">
+    <a href="#" class="dropdown-toggle mln" data-toggle="dropdown">
+     <span class="hidden-xs hidden-sm"><span class="name">John Iverson</span> </span>
+     <span class="fa fa-caret-down hidden-xs hidden-sm"></span>
+     <span class="profile-online">
+       <img src="assets/img/avatars/profile_avatar.jpg" alt="avatar">
+        </span>
+    </a>
+    <ul class="dropdown-menu list-group keep-dropdown w190" role="menu">
+     <li class="list-group-item">
+      <a href="#">
+       Profile
+       <span class="fa fa-user"></span>
+      </a>
+     </li>
+     <li class="list-group-item">
+      <a href="#">
+       Settings
+       <span class="fa fa-cog"></span>
+      </a>
+     </li>
+     <li class="list-group-item">
+      <a href="#">
+       My Calendar
+       <span class="fa fa-calendar-o"></span>
+      </a>
+     </li>
+     <li class="divider"></li>
+     <li class="list-group-item">
+      <a href="#">
+       Help
+       <span class="fa fa-question-circle"></span>
+      </a>
+     </li>
+     <li class="list-group-item">
+      <a href="#">
+       Logout
+       <span class="fa fa-sign-out"></span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+
+
+  <ul class="nav navbar-nav navbar-right mr25">
+   <li class="dropdown dropdown-fuse ml20">
+    <div class="navbar-btn btn-group">
+     <button data-toggle="dropdown" class="btn dropdown-toggle">
+      <span class="fa fa-envelope fs16"></span>
+     </button>
+     <button data-toggle="dropdown" class="btn dropdown-toggle bg-color-1 fs10 visible-xl">
+      3
+     </button>
+     <div class="dropdown-menu keep-dropdown w370 animated animated-shorter activity-container fadeIn" role="menu">
+      <div class="panel mbn">
+       <div class="activity-content">
+        <div class="panel-menu">
+         <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
+          <a href="#nav-tab1" data-toggle="tab" class="btn active">Notifications</a>
+          <a href="#nav-tab2" data-toggle="tab" class="btn br-l-n br-r-n">Messages</a>
+          <a href="#nav-tab3" data-toggle="tab" class="btn ">Activity</a>
+         </div>
+        </div>
+        <div class="panel-body pn">
+         <div class="tab-content br-n pn">
+
+          <div id="nav-tab1" class="tab-pane scroller-navbar alerts-widget active" role="tabpanel">
+           <div class="media">
+            <a class="media-left bg-success" href="#">
+             <span class="imoon imoon-user2"></span>
+            </a>
+            <div class="media-body">
+             <h5 class="media-heading">
+              New Registration
+             </h5>
+             David Johnson - 1 day ago
+            </div>
+            <div class="media-right">
+             <div class="media-response"> Confirm?</div>
+             <div class="btn-group">
+              <button type="button" class="btn bg-success">
+               <i class="fa fa-check"></i>
+              </button>
+              <button type="button" class="btn">
+               <i class="fa fa-remove"></i>
+              </button>
+             </div>
+            </div>
+           </div>
+           <div class="media">
+            <a class="media-left bg-system" href="#">
+             <span class="imoon imoon-tag"></span>
+            </a>
+            <div class="media-body">
+             <h5 class="media-heading">
+              New Order
+             </h5>
+             David Johnson - 1 day ago
+            </div>
+            <div class="media-right">
+             <div class="media-response text-right"> Moderate?</div>
+             <div class="btn-group">
+              <button type="button" class="btn bg-system">
+               <i class="fa fa-check"></i>
+              </button>
+              <button type="button" class="btn">
+               <i class="glyphicon glyphicon-print"></i>
+              </button>
+             </div>
+            </div>
+           </div>
+           <div class="media">
+            <a class="media-left bg-info" href="#">
+             <span class="glyphicon glyphicon-comment"></span>
+            </a>
+            <div class="media-body">
+             <h5 class="media-heading">New Comment
+             </h5>
+             David Johnson - 1 day ago
+            </div>
+            <div class="media-right">
+             <div class="media-response"> Approve?</div>
+             <div class="btn-group">
+              <button type="button" class="btn bg-info">
+               <i class="fa fa-check"></i>
+              </button>
+              <button type="button" class="btn">
+               <i class="glyphicon glyphicon-print"></i>
+              </button>
+             </div>
+            </div>
+           </div>
+           <div class="media">
+            <a class="media-left bg-warning" href="#">
+             <span class="glyphicon glyphicon-star"></span>
+            </a>
+            <div class="media-body">
+             <h5 class="media-heading">New Review
+             </h5>
+             David Johnson - 1 day ago
+            </div>
+            <div class="media-right">
+             <div class="media-response"> Approve?</div>
+             <div class="btn-group">
+              <button type="button" class="btn bg-warning">
+               <i class="fa fa-check"></i>
+              </button>
+              <button type="button" class="btn">
+               <i class="glyphicon glyphicon-print"></i>
+              </button>
+             </div>
+            </div>
+           </div>
+
+           <div class="media">
+            <a class="media-left bg-system" href="#">
+             <span class="imoon imoon-tag"></span>
+            </a>
+            <div class="media-body">
+             <h5 class="media-heading">
+              New Order
+             </h5>
+             David Johnson - 1 day ago
+            </div>
+            <div class="media-right">
+             <div class="media-response text-right"> Moderate?</div>
+             <div class="btn-group">
+              <button type="button" class="btn bg-system">
+               <i class="fa fa-check"></i>
+              </button>
+              <button type="button" class="btn">
+               <i class="glyphicon glyphicon-print"></i>
+              </button>
+             </div>
+            </div>
+           </div>
+          </div>
+
+
+          <div id="nav-tab2" class="tab-pane scroller-navbar chat-widget" role="tabpanel">
+           <div class="media">
+            <div class="media-left">
+             <a href="#">
+              <img class="media-object" alt="64x64" src="assets/img/avatars/chat_1.jpg">
+             </a>
+            </div>
+            <div class="media-body bg-success">
+             <h5 class="media-heading">Paul Pirce 1:25am</h5>
+             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            </div>
+           </div>
+           <div class="media">
+            <div class="media-body bg-info">
+             <h5 class="media-heading">Monica Smith 1:25am</h5>
+             Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+             erat volutpat.
+            </div>
+            <div class="media-right">
+             <a href="#">
+              <img class="media-object" alt="64x64" src="assets/img/avatars/chat_2.jpg">
+             </a>
+            </div>
+           </div>
+           <div class="media">
+            <div class="media-left">
+             <a href="#">
+              <img class="media-object" alt="64x64" src="assets/img/avatars/chat_1.jpg">
+             </a>
+            </div>
+            <div class="media-body bg-success">
+             <h5 class="media-heading">Paul Pirce 1:25am</h5>
+             Lorem ipsum dolor sit amet, nonummy nibh euismod tinc consectetuer
+             adipiscing elit.
+            </div>
+           </div>
+           <div class="media">
+            <div class="media-body bg-info">
+             <h5 class="media-heading">Monica Smith 1:25am</h5>
+             Euismod sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+             aliquam erat volutpat.
+            </div>
+            <div class="media-right">
+             <a href="#">
+              <img class="media-object" alt="64x64" src="assets/img/avatars/chat_2.jpg">
+             </a>
+            </div>
+           </div>
+           <div class="media">
+            <div class="media-left">
+             <a href="#">
+              <img class="media-object" alt="64x64" src="assets/img/avatars/chat_1.jpg">
+             </a>
+            </div>
+            <div class="media-body bg-success">
+             <h5 class="media-heading">Paul Pirce 1:25am</h5>
+             Corem ipsum dolor sit amet, nonummy nibh euismod tinc co.
+            </div>
+           </div>
+
+          </div>
+          <div id="nav-tab3" class="tab-pane scroller-navbar activity-widget" role="tabpanel">
+           <ul class="media-list" role="menu">
+            <li class="media">
+             <a class="media-left" href="#">
+              <img src="assets/img/avatars/4.jpg" class="" alt="avatar">
+             </a>
+             <div class="media-body">
+              <h5 class="media-heading">
+               Article - 08/16/22
+              </h5>
+              Last Updated 36 days ago by
+              <a class="" href="#"> Colin </a>
+             </div>
+             <div class="media-right">
+              <div class="media-response"> Confirm?</div>
+              <div class="btn-group">
+               <button type="button" class="btn bg-success">
+                <i class="fa fa-check"></i>
+               </button>
+               <button type="button" class="btn">
+                <i class="fa fa-remove"></i>
+               </button>
+              </div>
+             </div>
+            </li>
+            <li class="media">
+             <a class="media-left" href="#">
+              <img src="assets/img/avatars/3.jpg" class="" alt="avatar">
+             </a>
+             <div class="media-body">
+              <h5 class="media-heading">
+               Article - 08/16/22
+              </h5>
+              Last Updated 36 days ago by
+              <a class="" href="#"> Rebecca </a>
+             </div>
+             <div class="media-right">
+              <div class="media-response"> Confirm?</div>
+              <div class="btn-group">
+               <button type="button" class="btn bg-success">
+                <i class="fa fa-check"></i>
+               </button>
+               <button type="button" class="btn">
+                <i class="fa fa-remove"></i>
+               </button>
+              </div>
+             </div>
+            </li>
+            <li class="media">
+             <a class="media-left" href="#">
+              <img src="assets/img/avatars/2.jpg" class="" alt="avatar">
+             </a>
+             <div class="media-body">
+              <h5 class="media-heading">
+               Article - 08/16/22
+              </h5>
+              Last Updated 36 days ago by
+              <a class="" href="#"> Colin </a>
+             </div>
+             <div class="media-right">
+              <div class="media-response"> Confirm?</div>
+              <div class="btn-group">
+               <button type="button" class="btn bg-success">
+                <i class="fa fa-check"></i>
+               </button>
+               <button type="button" class="btn">
+                <i class="fa fa-remove"></i>
+               </button>
+              </div>
+             </div>
+            </li>
+            <li class="media">
+             <a class="media-left" href="#">
+              <img src="assets/img/avatars/1.jpg" class="" alt="avatar">
+             </a>
+             <div class="media-body">
+              <h5 class="media-heading">
+               Article - 08/16/22
+              </h5>
+              Last Updated 36 days ago by
+              <a class="" href="#"> Rebecca </a>
+             </div>
+             <div class="media-right">
+              <div class="media-response"> Confirm?</div>
+              <div class="btn-group">
+               <button type="button" class="btn bg-success">
+                <i class="fa fa-check"></i>
+               </button>
+               <button type="button" class="btn">
+                <i class="fa fa-remove"></i>
+               </button>
+              </div>
+             </div>
+            </li>
+            <li class="media">
+             <a class="media-left" href="#">
+              <img src="assets/img/avatars/4.jpg" class="" alt="avatar">
+             </a>
+             <div class="media-body">
+              <h5 class="media-heading">
+               Article - 08/16/22
+              </h5>
+              Last Updated 36 days ago by
+              <a class="" href="#"> Colin </a>
+             </div>
+             <div class="media-right">
+              <div class="media-response"> Confirm?</div>
+              <div class="btn-group">
+               <button type="button" class="btn bg-success">
+                <i class="fa fa-check"></i>
+               </button>
+               <button type="button" class="btn">
+                <i class="fa fa-remove"></i>
+               </button>
+              </div>
+             </div>
+            </li>
+
+           </ul>
+          </div>
+         </div>
+        </div>
+        <div class="panel-footer text-center">
+         <a href="#" class="btn fw600"> View All </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </li>
+
+  </ul>
+
+  <!-- translation -->
+  <ul class="nav navbar-nav navbar-right mr5">
+   <li class="dropdown dropdown-fuse hidden-xs">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">English
+     <span class="fa fa-chevron-down"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+     <li><a href="#">English</a></li>
+     <li><a href="#">Spanish</a></li>
+    </ul>
+   </li>
+  </ul>
+
+</header>
