@@ -15,7 +15,6 @@
                   <tr class="bg-light">
                     <th class="text-center"></th>
                     <th class=""> Email </th>
-                    <th class=""> Password </th>
                     <th class=""> Secret Key </th>
                     <th class=""> Member Since </th>
                     <th class=""> NB Offers </th>
@@ -24,7 +23,7 @@
                 </thead>
                 <tbody>
 
-                  <tr>
+                  <tr *ngFor= "let director of ListDirector">
                     <td class="text-center">
                       <label class="option block mn">
                         <input type="checkbox" name="inputname" value="FR">
@@ -32,11 +31,10 @@
                       </label>
                     </td>
 
-                    <td class=""> dict1@gmail.com </td>
-                    <td class=""> efef323GF </td>
-                    <td class="">dict_key1 </td>
-                    <td class=""> 1h ago </td>
-                    <td class=""> 5 </td>
+                    <td class=""> {{director.email}} </td>
+                    <td class=""> {{director.secret_id}} </td>
+                    <td class=""> {{director.created_at}} </td>
+                    <td class=""> {{director.nb_offers}}</td>
 
                     <td class="text-right">
                       <div class="btn-group text-right">
@@ -55,68 +53,6 @@
                           </td>
                     </tr>
 
-
-                    <tr>
-                      <td class="text-center">
-                        <label class="option block mn">
-                          <input type="checkbox" name="inputname" value="FR">
-                          <span class="checkbox mn"></span>
-                        </label>
-                      </td>
-
-                      <td class=""> dict1@gmail.com </td>
-                      <td class=""> efef323GF </td>
-                      <td class="">dict_key1 </td>
-                      <td class=""> 2 days ago </td>
-                      <td class=""> 5 </td>
-
-                      <td class="text-right">
-                        <div class="btn-group text-right">
-                          <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> action
-                            <span class="caret ml5"></span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu">
-                            <li>
-                              <a href="#">Edit</a>
-                              </li>
-                              <li>
-                              <a href="#">Delete</a>
-                              </li>
-                              </ul>
-                            </div>
-                            </td>
-                      </tr>
-
-                      <tr>
-                        <td class="text-center">
-                          <label class="option block mn">
-                            <input type="checkbox" name="inputname" value="FR">
-                            <span class="checkbox mn"></span>
-                          </label>
-                        </td>
-
-                        <td class=""> dict1@gmail.com </td>
-                        <td class=""> efef323GF </td>
-                        <td class="">dict_key1 </td>
-                        <td class=""> 1 week ago </td>
-                        <td class=""> 5 </td>
-
-                        <td class="text-right">
-                          <div class="btn-group text-right">
-                            <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> action
-                              <span class="caret ml5"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                              <li>
-                                <a href="#">Edit</a>
-                                </li>
-                                <li>
-                                <a href="#">Delete</a>
-                                </li>
-                                </ul>
-                              </div>
-                              </td>
-                        </tr>
                       </tbody>
                     </table>
                   </div>

@@ -1,8 +1,28 @@
 # StagesIT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+* This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
-## Development server
+* This my project: ITgate 2019 internship, :a: platform to publish interns.
+
+# Overview
+
+![add_offer](/img/add_offer.png)
+
+![list_user](/img/list_user.png)
+
+## run the **Node.js** app
+
+1. install [node.js]('http://node.js.com')
+2. install mongoDB `sudo apt-get install mongo`
+3. `node -v` to check the version.
+4. `npm install` to install app dependencies.
+5. `nodemon server.js` to run the server. The app will automatically reload if you change any of the source files.
+
+## run the **MongoDB** Server
+
+1. open your Terminal and run `mongod --port 3333`
+
+## run the Angular Server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 

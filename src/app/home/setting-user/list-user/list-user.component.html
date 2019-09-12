@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
 
-                  <tr>
+                  <tr *ngFor = "let user of User">
 
                     <td class="text-center">
                       <label class="option block mn">
@@ -36,10 +36,10 @@
                     <td class="w100">
                     <img class="img-responsive mw40 ib mr10" title="user" alt="" src="assets/img/pages/products/1.jpg">
                     </td>
-                    <td class=""> salah nouri </td>
-                    <td class=""> salah@gmail.com </td>
-                    <td class=""> 24272897 </td>
-                    <td class=""> 1h ago </td>
+                    <td class=""> {{user.first_name }}  {{user.last_name}}  </td>
+                    <td class=""> {{user.email}} </td>
+                    <td class=""> {{user.tel }} </td>
+                    <td class=""> {{user.created_at}} </td>
 
                     <td class="text-right">
                       <div class="btn-group text-right">
@@ -57,40 +57,6 @@
                           </div>
                           </td>
                     </tr>
-
-                    <tr>
-
-                      <td class="text-center">
-                        <label class="option block mn">
-                          <input type="checkbox" name="inputname" value="FR">
-                          <span class="checkbox mn"></span>
-                        </label>
-                      </td>
-
-                      <td class="w100">
-                      <img class="img-responsive mw40 ib mr10" title="user" alt="" src="assets/img/pages/products/2.jpg">
-                      </td>
-                      <td class=""> ahmed alex </td>
-                      <td class=""> ahmed@gmail.com </td>
-                      <td class=""> 24272897 </td>
-                      <td class=""> 30 minutes </td>
-
-                      <td class="text-right">
-                        <div class="btn-group text-right">
-                          <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> action
-                            <span class="caret ml5"></span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu">
-                            <li>
-                              <a href="#">Edit</a>
-                              </li>
-                              <li>
-                              <a href="#">Delete</a>
-                              </li>
-                              </ul>
-                            </div>
-                            </td>
-                      </tr>
 
 
                       </tbody>

@@ -7,6 +7,7 @@ const upload = multer({dest: path.join(__dirname, '../uploads')});
 const errorhandler = require('errorhandler');
 const notifier = require('node-notifier');
 const morgan = require('morgan');
+var cors = require('cors')
 
 function errorNotification(err, str, req) {
   var title = "Error in " + req.method + " " + req.url
@@ -25,7 +26,7 @@ module.exports = function(app) {
   app.use(upload.single('file')); // // 'file' must be the same as <form name="file"> in Views
 
   app.use(morgan('dev'));
-
+  app.use(cors('*'));
 
   if(app.get('env')==='development') {
     app.use(errorhandler({log: errorNotification}))
