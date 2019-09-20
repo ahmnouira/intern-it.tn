@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
 
-                  <tr *ngFor = "let user of User">
+                  <tr *ngFor = "let user of Users">
 
                     <td class="text-center">
                       <label class="option block mn">
@@ -39,7 +39,7 @@
                     <td class=""> {{user.first_name }}  {{user.last_name}}  </td>
                     <td class=""> {{user.email}} </td>
                     <td class=""> {{user.tel }} </td>
-                    <td class=""> {{user.created_at}} </td>
+                    <td class=""> {{user._id}} </td>
 
                     <td class="text-right">
                       <div class="btn-group text-right">
@@ -47,18 +47,21 @@
                           <span class="caret ml5"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
+
+                            <li>
+                                <button type="button" class="btn btn-dark btn-block btn-xs fs12" routerLink="/home/setting-user/user/{{user._id}}"> Details </button>
+                              </li>
+                              <li class="divider"></li>
                           <li>
-                            <a href="#">Edit</a>
+                              <button class="btn btn-info btn-block btn-xs fs12" data-toggle="modal" data-target="#edit" role="dialog" (click)="getOldUser(user._id, user.first_name, user.last_name, user.email, user.tel)"> Edit </button>
                             </li>
                             <li>
-                            <a href="#">Delete</a>
+                            <button class="btn btn-danger btn-block btn-xs fs12" (click)="deleteUser(user._id)"> Delete </button>
                             </li>
                             </ul>
                           </div>
                           </td>
                     </tr>
-
-
                       </tbody>
                     </table>
                   </div>
@@ -68,3 +71,84 @@
           </div>
         </div>
 </section>
+
+<div id="edit" class="modal popup-basic allcp-form">
+    <div class="panel">
+
+        <div class="panel-heading">
+        <span class="panel-title">
+        <i class="fa fa-rocket"></i>Edit User</span>
+        <button type="button" class="button btn-dark close" data-dismiss="modal"> &times; </button>
+        </div>
+        <form [formGroup]="updateForm">
+          <div class="panel-body">
+
+            <div class="section row ">
+                <div class="col-md-6">
+                <label class="field prepend-icon">
+                <input type="text" formControlName="first_name" class="form-control" placeholder="First Name...">
+                <span class="field-icon">
+                <i class="fa fa-user"></i>
+                </span>
+                </label>
+                </div>
+
+                <div class="col-md-6">
+                <label class="field prepend-icon">
+                <input type="text" formControlName="last_name" class="form-control" placeholder="Last Name...">
+                <span class="field-icon">
+                <i class="fa fa-user"></i>
+                </span>
+                </label>
+                </div>
+            </div>
+
+              <div class="section">
+                  <label class="field prepend-icon">
+                      <input type="email" formControlName="email" class="form-control" placeholder="Email address">
+                                <span class="field-icon">
+                                  <i class="fa fa-envelope"></i>
+                              </span>
+                      </label>
+                </div>
+
+              <div class="section row">
+                  <div class="col-md-6">
+                  <label class="field prepend-icon">
+                  <input type="password" class="form-control" placeholder="New Password...">
+                  <span class="field-icon">
+                  <i class="fa fa-user"></i>
+                  </span>
+                  </label>
+                  </div>
+
+                  <div class="col-md-6">
+                  <label class="field prepend-icon">
+                  <input type="password" class="form-control" placeholder="Repeat Password...">
+                  <span class="field-icon">
+                  <i class="fa fa-user"></i>
+                  </span>
+                  </label>
+                  </div>
+
+                </div>
+
+                <div class="section">
+                    <label class="field prepend-icon">
+                        <input type="tel" formControlName="tel" class="form-control" placeholder="Tel">
+                                  <span class="field-icon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                        </label>
+                  </div>
+          </div>
+
+          <div class="panel-footer text-center">
+          <button type="submit" class="button btn-primary" (click)="updateUser()"> Submit </button>
+          <button type="reset" class="button btn-danger"> Reset </button>
+          </div>
+
+          </form>
+
+        </div>
+  </div>

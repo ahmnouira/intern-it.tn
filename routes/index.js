@@ -3,5 +3,6 @@ module.exports = {
   'users' : require('./usersRoute'),
   'director' : require('./directorRoute'),
   'offers': require('./offersRoute'),
-  'user':require('./userRoute')
+  'user':require('./userRoute'),
+  'file': require('./fileRoute')
 }

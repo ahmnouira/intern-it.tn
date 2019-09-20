@@ -1,0 +1,87 @@
+
+<body class="utility-page sb-l-c sb-r-c">
+
+<div id="main" class="animated fadeIn">
+
+<section id="content_wrapper">
+<div id="canvas-wrapper">
+<canvas id="demo-canvas"></canvas>
+</div>
+
+<section id="content">
+
+<div class="allcp-form theme-primary mw320" id="login">
+<div class="bg-primary mw600 text-center mb20 br3 pt15 pb10">
+<img src="assets/img/logo.png" alt="" />
+</div>
+<div class="panel mw320">
+
+<form [formGroup]="registerForm">
+    <div class="panel-body pn mv10">
+        <div class="section">
+            <label class="field prepend-icon">
+                <input type="email" formControlName="email" class="gui-input" placeholder="Email">
+                    <span class="field-icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+            </label>
+        </div>
+
+        <div class="section">
+            <label class="field prepend-icon">
+                <input type="password" formControlName="password" class="gui-input" placeholder="Password">
+                    <span class="field-icon">
+                        <i class="fa fa-lock"></i>
+                    </span>
+            </label>
+        </div>
+
+<div class="section">
+<div class="bs-component pull-left pt5">
+<div class="radio-custom radio-primary mb5 lh25">
+<input type="radio" id="remember" name="remember">
+<label for="remember">Remember me</label>
+</div>
+</div>
+<button type="button" class="btn btn-bordered btn-primary pull-right" (click)="login()">Log in</button>
+</div>
+
+</div>
+
+</form>
+</div>
+
+</div>
+
+</section>
+
+</section>
+
+</div>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        "use strict";
+
+        // Init Theme Core
+        Core.init();
+
+        // Init Demo JS
+        Demo.init();
+
+        // Init CanvasBG
+        CanvasBG.init({
+            Loc: {
+                x: window.innerWidth / 5,
+                y: window.innerHeight / 10
+            }
+        });
+
+    });
+</script>
+
+</body>
+

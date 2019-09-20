@@ -1,11 +1,14 @@
+
+
 <section id="content" class="table-layout animated fadeIn">
+
   <div class="chute chute-center">
 
     <div class="row">
       <div class="col-xs-12">
         <div class="panel">
           <div class="panel-heading">
-            <span class="panel-title hidden-xs"><h4>Offers Status</h4></span>
+            <span class="panel-title hidden-xs"><h4> Offers Status </h4></span>
           </div>
           <hr class="alt short">
           <div class="panel-body pn">
@@ -21,12 +24,12 @@
                     <th class=""> Likes </th>
                     <th class=""> Views </th>
                     <th class=""> NB User Insc </th>
-                    <th class="text-right"> Action </th>
+                    <th class=""> Action </th>
                   </tr>
                 </thead>
                 <tbody>
 
-                  <tr *ngFor = "let offer of ListOffer">
+                  <tr *ngFor = "let offer of Offers">
                     <td class="text-center">
                       <label class="option block mn">
                         <input type="checkbox" name="inputname" value="FR">
@@ -38,27 +41,34 @@
                     <td class=""> {{offer.type}} </td>
                     <td class=""> {{offer.place}} </td>
                     <td class=""> {{offer.created_at}} </td>
-                    <td class=""> {{offer.liks}}</td>
-                    <td class=""> {{offer.veiws}} </td>
-                    <td class=""> {{offer.nb_candidate_insc}}</td>
+                    <td class=""> {{offer.likes}} </td>
+                    <td class=""> {{offer.views}} </td>
+                    <td class=""> {{offer.nb_candidate_insc}} </td>
 
-                    <td class="text-right">
+                    <td class="text-center">
                       <div class="btn-group text-right">
-                        <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> action
+                        <button type="button" class="btn btn-success btn-xs br2 fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> action
                           <span class="caret ml5"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
+
                           <li>
-                            <a href="#">Edit</a>
+                            <button type="button" class="btn btn-dark btn-block btn-xs fs12" routerLink="/home/setting-offer/offer/{{offer._id}}"> Details </button>
+                          </li>
+
+                          <li class="divider"></li>
+                          <li >
+                            <button type="button" class="btn btn-info btn-block btn-xs fs12" data-toggle="modal" data-target="#edit"  (click)="recupere(offer._id, offer.title, offer.type, offer.description, offer.place)"> Edit </button>
                             </li>
+
                             <li>
-                            <a href="#">Delete</a>
+                            <button type="button" class="btn btn-danger btn-block btn-xs fs12" (click)="deleteOffer(offer._id)"> Delete </button>
                             </li>
+
                             </ul>
                           </div>
                           </td>
-                    </tr>
-
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -66,5 +76,82 @@
               </div>
             </div>
           </div>
+
         </div>
 </section>
+
+<script src="assets/js/pages/management-tools-modals.js"></script>
+
+        <div id="edit" class="modal fade popup-basic allcp-form">
+            <div class="panel">
+
+                <div class="panel-heading">
+                <span class="panel-title">
+                <i class="fa fa-rocket"></i>Edit Offer</span>
+                <button type="button" class="button btn-dark close" data-dismiss="modal"> &times; </button>
+              </div>
+
+              <form [formGroup]="updateForm">
+                  <div class="panel-body">
+
+                    <div class="section">
+                          <label class="field prepend-icon">
+                            <input type="text" formControlName="title" class="form-control" placeholder="Title...">
+                              <span class="field-icon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </label>
+                    </div>
+
+                  <!-- description of offer -->
+                  <div class="section">
+                        <label class="field prepend-icon">
+                            <textarea class="gui-textarea" formControlName="description" placeholder="Description..."></textarea>
+                            <span class="field-icon">
+                              <i class="fa fa-comment"></i>
+                            </span>
+                        </label>
+                    </div>
+
+
+                  <!-- type of the offer -->
+                  <div class="section row">
+                    <div class="col-md-6">
+                        <label class="field select">
+                            <select name="stage_PFE" class="form-control" formControlName="type">
+                                <option value="">Type...</option>
+                                <option value="stage">Stage</option>
+                                <option value="PFE">PFE</option>
+                            </select>
+                            <i class="arrow double"></i>
+                        </label>
+                    </div>
+
+
+                    <!-- place of the offer -->
+                    <div class="col-md-6">
+                          <label class="field select">
+                              <select name="place" class="form-control" formControlName="place">
+                                  <option value="">Place...</option>
+                                  <option value="Monastir">Monastir</option>
+                                  <option value="Sousse">Sousse</option>
+                                  <option value="Tunis">Tunis</option>
+                                  <option value="Mahdia">Mahdia</option>
+                              </select>
+                              <i class="arrow double"></i>
+                          </label>
+                      </div>
+
+                  </div>
+
+                  </div>
+
+                  <div class="panel-footer text-center">
+                  <button type="submit" class="button btn-primary" (click)="updateOffer()"> Submit </button>
+                  <button type="reset" class="button btn-danger">Reset</button>
+                  </div>
+
+                  </form>
+
+                </div>
+          </div>

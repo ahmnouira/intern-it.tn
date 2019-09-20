@@ -2,7 +2,7 @@
   <div class="allcp-form theme-primary mw1000 center-block pb175">
 
       <div class="panel">
-          <form method="post" action="http://myadmin-html.axiomthemes.com/" id="allcp-form">
+        <form [formGroup]="registerForm" (ngSubmit)="addOffer()">
              <div class="panel-heading">
                 <div class="panel-title">
                     Add New Offer ?
@@ -10,71 +10,83 @@
                         </div>
                           <div class="panel-body">
 
-                            <!--type offer -->
+                            <!--title offer -->
                             <div class="section">
                               <h4> Title: </h4>
                                 <label for="child_name" class="field prepend-icon">
-                                    <input type="text" name="child_name" id="child_name" class="gui-input"
-                                           placeholder="Title of the offer">
+                                    <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" placeholder="Title of the offer">
                                     <span class="field-icon">
                                       <i class="fa fa-user"></i>
                                     </span>
+                                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback text-danger">
+                                         <div *ngIf="f.title.errors.required"> [Title is required] </div>
+                                    </div>
                                 </label>
                             </div>
 
-                            <!-- type of the offer -->
-                              <div class="section">
-                                <h4> Type: </h4>
+
+                           <!-- type of the offer -->
+                           <div class="section">
+                            <h4> Type: </h4>
+                              <label class="field select">
+                                  <select id="stage_PFE" name="stage_PFE" class="form-control" formControlName="type" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                                      <option value="">Select The Type...</option>
+                                      <option value="stage">Stage</option>
+                                      <option value="PFE">PFE</option>
+                                  </select>
+                                  <i class="arrow double"></i>
+                                  <div *ngIf="submitted && f.type.errors" class="invalid-feedback text-danger">
+                                    <div *ngIf="f.type.errors.required"> [Type is required] </div>
+                               </div>
+                              </label>
+                          </div>
+                           
+                            <!-- description of offer -->
+                            <div class="section" id="spy3">
+                              <h4> Description: </h4>
+                                <label class="field prepend-icon">
+                                    <textarea class="form-control" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" placeholder="Description for the offer"> </textarea>
+                                    <span class="field-icon">
+                                      <i class="fa fa-comment"></i>
+                                    </span>
+                                    <div *ngIf="submitted && f.description.errors" class="invalid-feedback text-danger">
+                                      <div *ngIf="f.description.errors.required"> [Description is required] </div>
+                                 </div>
+                                </label>
+                            </div>
+
+
+                             <!-- place of the offer -->
+                             <div class="section">
+                                <h4> Place: </h4>
                                   <label class="field select">
-                                      <select id="stage_PFE" name="stage_PFE">
-                                          <option value="">Select The Type...</option>
-                                          <option value="stage">Stage</option>
-                                          <option value="PFE">PFE</option>
+                                      <select name="place" formControlName="place">
+                                          <option value="">Select The Place...</option>
+                                          <option value="Monastir">Monastir</option>
+                                          <option value="Sousse">Sousse</option>
+                                          <option value="Tunis">Tunis</option>
+                                          <option value="Mahdia">Mahdia</option>
                                       </select>
                                       <i class="arrow double"></i>
                                   </label>
                               </div>
 
-                            <!-- description of offer -->
-                            <div class="section" id="spy3">
-                              <h4> Description: </h4>
-                                <label for="comment" class="field prepend-icon">
-                                    <textarea class="gui-textarea" id="comment" name="comment"
-                                              placeholder="Description for the offer"></textarea>
-                                    <span class="field-icon">
-                                      <i class="fa fa-comment"></i>
-                                    </span>
-                                </label>
+                              <!-- image of offer post -->
+                              <div class="section">
+                                <h4> Upload Image: </h4>
+                                  <label for="file1" class="field prepend-icon file file-fw">
+                                      <span class="button">Choose File</span>
+                                      <input type="file" class="gui-file" name="upload1" id="file1"
+                                             onChange="document.getElementById('uploader1').value = this.value;">
+                                      <input type="text" class="gui-input" id="uploader1" placeholder="File Select">
+                                  </label>
+                              </div>
+
                             </div>
 
-                              <!-- type of the offer -->
-                                <div class="section">
-                                  <h4> Where is this Offer ? </h4>
-                                    <label class="field select">
-                                        <select id="language" name="language">
-                                            <option value="">Select The Place...</option>
-                                            <option value="EN">Monastir</option>
-                                            <option value="FR">Sousse</option>
-                                            <option value="SP">Tunis</option>
-                                        </select>
-                                        <i class="arrow double"></i>
-                                    </label>
-                                </div>
-
-                                <!-- image of offer post -->
-                                <div class="section" id="spy2">
-                                  <h4> Upload Image: </h4>
-                                    <label for="file1" class="field prepend-icon file file-fw">
-                                        <span class="button">Choose File</span>
-                                        <input type="file" class="gui-file" name="upload1" id="file1"
-                                               onChange="document.getElementById('uploader1').value = this.value;">
-                                        <input type="text" class="gui-input" id="uploader1" placeholder="File Select">
-                                    </label>
-                                </div>
-                            </div>
-                  <div class="panel-footer text-right">
+                            <div class="panel-footer text-right">
                       <button type="submit" class="btn btn-bordered btn-primary mb5"> Validate Form</button>
-                      <button type="reset" class="btn btn-bordered mb5"> Cancel</button>
+                      <button type="reset" class="btn btn-bordered mb5"> Cancel </button>
                     </div>
           </form>
       </div>

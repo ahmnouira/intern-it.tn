@@ -18,12 +18,12 @@
                     <th class=""> Secret Key </th>
                     <th class=""> Member Since </th>
                     <th class=""> NB Offers </th>
-                    <th class="text-right"> Action </th>
+                    <th class=""> Action </th>
                   </tr>
                 </thead>
                 <tbody>
 
-                  <tr *ngFor= "let director of ListDirector">
+                  <tr *ngFor= "let director of Directors">
                     <td class="text-center">
                       <label class="option block mn">
                         <input type="checkbox" name="inputname" value="FR">
@@ -36,23 +36,29 @@
                     <td class=""> {{director.created_at}} </td>
                     <td class=""> {{director.nb_offers}}</td>
 
-                    <td class="text-right">
-                      <div class="btn-group text-right">
+                    <td class="text-center">
+                      <div class="btn-group">
                         <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> action
                           <span class="caret ml5"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
+
+                            <li>
+                                <button type="button" class="btn btn-dark btn-block btn-xs fs12" routerLink="/home/setting-director/director/{{director._id}}"> Details </button>
+                              </li>
+                              <li class="divider"></li>
                           <li>
-                            <a href="#">Edit</a>
+                            <!-- fs16: font size-->
+                            <!-- br2: bodere radius-->
+                            <button class="btn btn-info btn-block btn-xs fs12" data-toggle="modal" data-target="#edit" role="dialog" (click)="getOldDirector(director._id, director.email, director.secret_id)"> Edit </button>
                             </li>
                             <li>
-                            <a href="#">Delete</a>
+                            <button class="btn btn-danger btn-block btn-xs fs12" (click)="deleteDirector(director._id)"> Delete </button>
                             </li>
                             </ul>
                           </div>
                           </td>
-                    </tr>
-
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -62,3 +68,89 @@
           </div>
         </div>
 </section>
+
+<div id="edit" class="modal fade popup-basic allcp-form">
+    <div class="panel">
+
+        <div class="panel-heading">
+        <span class="panel-title">
+        <i class="fa fa-rocket"></i> Edit Director </span>
+        <button type="button" class="button btn-dark close" data-dismiss="modal"> &times; </button>
+        </div>
+        <form [formGroup]="updateForm">
+          <div class="panel-body">
+
+              <div class="section">
+              <label class="field prepend-icon">
+                  <input type="email" formControlName="email" class="form-control" placeholder="Email address">
+                            <span class="field-icon">
+                              <i class="fa fa-envelope"></i>
+                          </span>
+                  </label>
+            </div>
+
+            <div class="section row ">
+                <div class="col-md-6">
+                <label class="field prepend-icon">
+                <input type="password" class="form-control" placeholder="New Psw ?">
+                <span class="field-icon">
+                <i class="fa fa-user"></i>
+                </span>
+                </label>
+                </div>
+
+                <div class="col-md-6">
+                <label class="field prepend-icon">
+                <input type="password" class="form-control" placeholder="Repeat Psw ?">
+                <span class="field-icon">
+                <i class="fa fa-user"></i>
+                </span>
+                </label>
+                </div>
+
+              </div>
+
+              <div class="section row">
+                  <div class="col-md-6">
+                  <label class="field prepend-icon">
+                  <input type="text" formControlName="secret_id" class="form-control" placeholder="New Secret ?">
+                  <span class="field-icon">
+                  <i class="fa fa-user"></i>
+                  </span>
+                  </label>
+                  </div>
+
+                  <div class="col-md-6">
+                  <label class="field prepend-icon">
+                  <input type="text" formControlName="repeatSecret" class="form-control" placeholder="Rep Secret ?">
+                  <span class="field-icon">
+                  <i class="fa fa-user"></i>
+                  </span>
+                  </label>
+                  </div>
+
+                </div>
+
+
+                <div class="section">
+                    <label class="field select">
+                        <select class="form-control">
+                            <option value="">Select The Offer...</option>
+                            <option value="dev_mobile">dev Mobile</option>
+                            <option value="dev_app">dev app </option>
+                        </select>
+                        <i class="arrow double"></i>
+                    </label>
+                </div>
+
+          </div>
+
+          <div class="panel-footer text-center">
+          <button type="submit" class="button btn-primary" (click)="updateDirector()"> Submit </button>
+          <button type="reset" class="button btn-danger"> Reset </button>
+          </div>
+
+          </form>
+
+        </div>
+  </div>

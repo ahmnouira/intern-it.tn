@@ -1,10 +1,23 @@
 var mongoose = require('mongoose');
+var path = require('path');
 
-const file = mongoose.model('file', new mongoose.Schema({
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
-  title: { type: String },
-  file: {type: String }
+const FileSchema = new Schema({
+  user_id: {type:ObjectId},
+  user_name: {type:String},
+  filename: {type: String },
+  full_name: {type: String},
+  name: {type: String},
+  timestamp: {type:Date, default: Date.now}
+})
 
-}));
+// the id of the image is the filename
+FileSchema.virtual('id').get(function(){
+  return this.filename
+});
 
-module.exports = mongoose.model('file');
+const file = mongoose.model('file', FileSchema);
+
+module.exports = file;

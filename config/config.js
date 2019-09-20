@@ -9,13 +9,13 @@ const notifier = require('node-notifier');
 const morgan = require('morgan');
 var cors = require('cors')
 
-function errorNotification(err, str, req) {
+/* function errorNotification(err, str, req) {
   var title = "Error in " + req.method + " " + req.url
   notifier.notifiy({
     title: title,
     message: str
   });
-}
+} */
 
 module.exports = function(app) {
 
@@ -28,15 +28,16 @@ module.exports = function(app) {
   app.use(morgan('dev'));
   app.use(cors('*'));
 
-  if(app.get('env')==='development') {
-    app.use(errorhandler({log: errorNotification}))
-  }
+  /*if(app.get('env')==='development') {
+    app.use(errorhandler())
+  }*/
 
   routes.home(app);
   routes.users(app);
   routes.director(app);
   routes.user(app);
   routes.offers(app);
+  routes.file(app);
 
   // express doesn't consider not found 404 as an error so we need to handle 404 explicitly
   // handle 404 error

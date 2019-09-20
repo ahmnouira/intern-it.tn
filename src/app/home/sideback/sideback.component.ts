@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebackComponent implements OnInit {
 
+  USER  : any
+
   constructor() { }
 
+
+  getUserInfo() {
+    this.USER = JSON.parse(localStorage.getItem('userConnected'))
+  }
+
   ngOnInit() {
+    this.getUserInfo();
+    console.log("USER : ", this.USER)
   }
 
 }

@@ -1,4 +1,5 @@
 const UserModel = require('../models/userModel');
+const OfferModel = require('../models/offerModel');
 
 module.exports = {
 
@@ -11,8 +12,8 @@ post : function(req, res) {
       first_name: req.body.first_name,
       tel: req.body.tel,
       last_name: req.body.last_name,
-      user_offers: req.body.user_offers
-
+      address: req.body.address,
+      offers: req.body.offer
     })
 
     user.save(function(err) {
@@ -27,7 +28,7 @@ post : function(req, res) {
 // GET method,
 get: function(req, res) {
       if (req.params.id) {
-      UserModel.findOne({_id:req.params.id} , function(err, user){
+      UserModel.findOne({_id:req.params.id}).populate('offers', '_id title description type').exec(function(err, user){
         if (err){
         res.json({status: "ERROR", msg: "vous avez un erreur"  + err })
         } else {

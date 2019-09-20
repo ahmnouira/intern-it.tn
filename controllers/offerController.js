@@ -9,7 +9,9 @@ post : function(req, res) {
       title: req.body.title,
       description: req.body.description,
       type: req.body.type,
-      candidate: req.body.candidate
+      candidates: req.body.candidate,
+      createdByDirector: req.body.directorId,
+      place: req.body.place
     })
 
     offer.save(function(err) {
@@ -24,7 +26,7 @@ post : function(req, res) {
 
 get: function(req, res) {
       if (req.params.id) {
-        OfferModel.findOne({_id:req.params.id}).populate('candidate').exec(function(err, offer){
+        OfferModel.findOne({_id:req.params.id}).populate('createdByDirector', '_id email secret_id nb_offers').populate('candidates', '_id first_name last_name email tel').exec(function(err, offer){
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
         } else {
@@ -33,7 +35,7 @@ get: function(req, res) {
     })
 
     } else {
-      OfferModel.find({}, function(err, offers){
+      OfferModel.find({}).populate('createdByDirector').populate('candidates').exec(function(err, offers){
         //console.log(offers);
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
@@ -65,6 +67,34 @@ delete: function(req, res){
     }
   },
 
+
+
+
+  put : function(req, res) {
+
+    OfferModel.findOne({_id:req.params.id}, function(err, offer){
+      if (err) {throw err;}
+      else {
+      OfferModel.updateOne({_id:req.params.id},
+        {
+          title: req.body.title ? req.body.title : offer.title,
+          description: req.body.description ? req.body.description : offer.description,
+          type:req.body.type ? req.body.type: offer.type,
+          place:req.body.place ? req.body.place: offer.place
+        }
+        , function(err) {
+            if (err) {
+            res.json({status: "error", msg: "vous avez un erreur: "  + err })
+          } else {
+            res.json({status: "OK", msg:"Offer Has been Updated Successfully"});
+          }
+    });
+    }
+  });
+  
+  },
+
+/*
 addCandidate: function(req, res) {
     OfferModel.findByIdAndUpdate(req.params.id,
       {$push: {candidate: req.body.candidate}},
@@ -73,10 +103,10 @@ addCandidate: function(req, res) {
           if(err){
           console.log(err);
           }else{
-            res.json({status: "OK", msg: "Director Upadted"})
+            res.json({status: "OK", msg: "Candiate Upadted"})
           }
       }
   );
-  }
+  } */
 
 }

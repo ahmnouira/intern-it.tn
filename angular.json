@@ -24,8 +24,10 @@
             ],
             "styles": [
               "src/styles.css"
+
             ],
             "scripts": [],
+
             "es5BrowserSupport": true
           },
           "configurations": {

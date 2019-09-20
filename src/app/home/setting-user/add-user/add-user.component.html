@@ -2,7 +2,7 @@
   <div class="allcp-form theme-primary mw1000 center-block pb175">
 
       <div class="panel">
-          <form method="post" action="http://myadmin-html.axiomthemes.com/" id="allcp-form">
+        <form [formGroup]="registerForm" (ngSubmit)="addUser()">
              <div class="panel-heading">
                 <div class="panel-title">
                     Add New User ?
@@ -10,105 +10,97 @@
                         </div>
                           <div class="panel-body">
 
-
-<!-- first_name last_name -->
-
-                      <div class="section row mhn10">
+                    <!-- first_name last_name -->
+                      <div class="section row">
                           <div class="col-md-6 ph10 mb5">
                             <h4> First Name: </h4>
-                              <label for="firstname" class="field prepend-icon">
-                                  <input type="text" name="firstname" id="firstname" class="gui-input"
-                                      placeholder="First name..." required>
+                              <label class="field prepend-icon">
+                                <input type="text" formControlName="first_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" placeholder="First name..."  >
                                         <span class="field-icon">
                                           <i class="fa fa-user"></i>
                                             </span>
-                                              </label>
+                                            <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback text-danger">
+                                                 <div *ngIf="f.first_name.errors.required"> First Name is required </div>
                                             </div>
+                                      </label>
+                                </div>
+                                
+                           <div class="col-md-6 ph10 mb5">
+                              <h4> Last Name: </h4>
+                              <label for="lastname" class="field prepend-icon">
+                              <input type="text" formControlName="last_name" name="lastname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }" placeholder="Last name..." >
+                              <span class="field-icon">
+                                  <i class="fa fa-user"></i>
+                              </span>
+                              <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback text-danger">
+                                   <div *ngIf="f.last_name.errors.required"> Last Name is required </div>
+                              </div>
+                              </label>
+                            </div>
+                      </div>
 
-                                          <div class="col-md-6 ph10 mb5">
-                                            <h4> Last Name: </h4>
-                                            <label for="lastname" class="field prepend-icon">
-                                              <input type="text" name="lastname" id="lastname" class="gui-input"
-                                              placeholder="Last name..." required>
-                                              <span class="field-icon">
-                                                <i class="fa fa-user"></i>
-                                              </span>
-                                            </label>
-                                          </div>
-                                        </div>
-
-
-
-                            <!-- password -->
-                            <div class="section row mhn10">
+                            <div class="section row">
                               <div class="col-md-6 ph10 mb5">
                               <h4> Password: </h4>
-                                <label for="password" class="field prepend-icon">
-                                    <input type="password" name="password" id="password" class="gui-input"
-                                           placeholder="Create password" required>
+                                <label  class="field prepend-icon">
+                                  <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Create Password..."  >
                                     <span class="field-icon">
                                       <i class="fa fa-lock"></i>
                                     </span>
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback text-danger">
+                                         <div *ngIf="f.password.errors.required"> Password is required </div>
+                                    </div>
                                 </label>
                             </div>
+
 
                             <div class="col-md-6 ph10 mb5">
                               <h4> Repeat Password:</h4>
-                                <label for="repeatPassword" class="field prepend-icon">
-                                    <input type="password" name="repeatPassword" id="repeatPassword"
-                                           class="gui-input" placeholder="Repeat password" required>
+                                <label class="field prepend-icon">
+                                    <input type="password"  formControlName="repeatPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.repeatPassword.errors }" placeholder="Repeat password">
                                     <span class="field-icon">
                                       <i class="fa fa-unlock"></i>
                                     </span>
+                                    <div *ngIf="submitted && f.repeatPassword.errors" class="invalid-feedback text-danger">
+                                        <div *ngIf="f.repeatPassword.errors.required"> Repeat Password is required </div>
+                                   </div>
+
                                 </label>
                             </div>
+
                           </div>
 
 
-                          <!--email  -->
-
                           <div class="section">
                             <h4> Email: </h4>
-                            <label for="useremail" class="field prepend-icon">
-                                <input type="email" name="useremail" id="useremail" class="gui-input"
-                                       placeholder="Email address" required>
+                            <label class="field prepend-icon">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Email Address...">
                                           <span class="field-icon">
                                             <i class="fa fa-envelope"></i>
                                         </span>
                                 </label>
                             </div>
 
-
-                            <!-- phone -->
+                        
                             <div class="section">
                               <h4> Phone Number: </h4>
-                                <label for="home_phone" class="field prepend-icon">
-                                    <input type="tel" name="home_phone" id="home_phone"
-                                           class="gui-input phone-group" placeholder="Phone number">
+                                <label class="field prepend-icon">
+                                    <input type="tel" class="phone-group form-control" formControlName="tel" placeholder="Phone number">
                                     <span class="field-icon">
                                       <i class="fa fa-phone"></i>
                                     </span>
                                 </label>
                             </div>
+                          
                             
+                    </div>
 
-                                <!-- files of director -->
-                                <div class="section" id="spy2">
-                                    <h4>Upload File:</h4>
-                                    <label for="file1" class="field prepend-icon file file-fw">
-                                        <span class="button">Choose File</span>
-                                        <input type="file" class="gui-file" name="upload1" id="file1"
-                                               onChange="document.getElementById('uploader1').value = this.value;">
-                                        <input type="text" class="gui-input" id="uploader1" placeholder="File Select">
-                                    </label>
-                                </div>
-                            </div>
-
+                        
                   <div class="panel-footer text-right">
                       <button type="submit" class="btn btn-bordered btn-primary mb5"> Validate Form</button>
                       <button type="reset" class="btn btn-bordered mb5"> Cancel</button>
                     </div>
-          </form>
+           </form>
       </div>
     </div>
 </div>

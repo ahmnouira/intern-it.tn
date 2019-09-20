@@ -1,110 +1,123 @@
 <div class="chute chute-center">
   <div class="allcp-form theme-primary mw1000 center-block pb175">
-
       <div class="panel">
-          <form method="post" action="http://myadmin-html.axiomthemes.com/" id="allcp-form">
+          <form [formGroup]="registerForm" (ngSubmit)="addDirector()">
              <div class="panel-heading">
                 <div class="panel-title">
                     Add New Director ?
                       </div>
                         </div>
                           <div class="panel-body">
-
-                            <!--email  -->
-
+                            <!--email -->
                             <div class="section">
                               <h4> Email: </h4>
-                              <label for="useremail" class="field prepend-icon">
-                                  <input type="email" name="useremail" id="useremail" class="gui-input"
-                                         placeholder="Email address" required>
+                              <label class="field prepend-icon">
+                                  <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email address">
                                             <span class="field-icon">
                                               <i class="fa fa-envelope"></i>
                                           </span>
+                                          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                               <div *ngIf="f.email.errors.required" class="text-danger"> [Email is required] </div>
+                                          </div>
                                   </label>
+                            </div>
+                            <div class="section row mhn10">
+                                <div class="col-md-6 ph10 mb5">
+                                <h4> Password: </h4>
+                                <label class="field prepend-icon">
+                                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Create password">
+                                              <span class="field-icon">
+                                                <i class="fa fa-lock"></i>
+                                            </span>
+                                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                 <div *ngIf="f.password.errors.required" class="text-danger"> [Password is required] </div>
+                                            </div>
+                                    </label>
+                              </div>
+
+                              <div class="col-md-6 ph10 mb5">
+                                  <h4> Repeat Password:</h4>
+                                    <label class="field prepend-icon">
+                                        <input type="password" formControlName="repeatPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.repeatPassword.errors }"
+                                                placeholder="Repeat password" >
+                                        <span class="field-icon">
+                                          <i class="fa fa-unlock"></i>
+                                        </span>
+                                        <div *ngIf="submitted && f.repeatPassword.errors" class="invalid-feedback">
+                                            <div *ngIf="f.repeatPassword.errors.required" class="text-danger"> [Repeat Password is required] </div>
+                                       </div>
+                                    </label>
+                                </div>
                               </div>
 
 
-                            <!-- password -->
+
+                                
                             <div class="section row mhn10">
+                                <div class="col-md-6 ph10 mb5">
+                                <h4> SecretKey: </h4>
+                                  <label class="field prepend-icon">
+                                      <input type="text" formControlName="secret_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.secret_id.errors }"
+                                             placeholder="Create SecretKey" >
+                                      <span class="field-icon">
+                                        <i class="fa fa-lock"></i>
+                                      </span>
+                                      <div *ngIf="submitted && f.secret_id.errors" class="invalid-feedback">
+                                          <div *ngIf="f.secret_id.errors.required" class="text-danger"> [Serect ID is required] </div>
+                                          </div>
+                                          
+                                  </label>
+                              </div>
+  
                               <div class="col-md-6 ph10 mb5">
-                              <h4> Password: </h4>
-                                <label for="password" class="field prepend-icon">
-                                    <input type="password" name="password" id="password" class="gui-input"
-                                           placeholder="Create password" required>
-                                    <span class="field-icon">
-                                      <i class="fa fa-lock"></i>
-                                    </span>
-                                </label>
-                            </div>
-
-                            <div class="col-md-6 ph10 mb5">
-                              <h4> Repeat Password:</h4>
-                                <label for="repeatPassword" class="field prepend-icon">
-                                    <input type="password" name="repeatPassword" id="repeatPassword"
-                                           class="gui-input" placeholder="Repeat password" required>
-                                    <span class="field-icon">
-                                      <i class="fa fa-unlock"></i>
-                                    </span>
-                                </label>
-                            </div>
-                          </div>
-
-                            <!-- sercret_id -->
-                            <div class="section row mhn10">
-                              <div class="col-md-6 ph10 mb5">
-                              <h4> SecretKey: </h4>
-                                <label for="secret_key" class="field prepend-icon">
-                                    <input type="password" name="secret_key" id="secret_key" class="gui-input"
-                                           placeholder="Create SecretKey" required>
-                                    <span class="field-icon">
-                                      <i class="fa fa-lock"></i>
-                                    </span>
-                                </label>
-                            </div>
-
-                            <div class="col-md-6 ph10 mb5">
-                              <h4> Repeat SecretKey:</h4>
-                                <label for="repeat_secret_key" class="field prepend-icon">
-                                    <input type="password" name="repeat_secret_key" id="repeat_secret_key"
-                                           class="gui-input" placeholder="Repeat SecretKey" required>
-                                    <span class="field-icon">
-                                      <i class="fa fa-unlock"></i>
-                                    </span>
-                                </label>
-                            </div>
-                          </div>
-
-
-                              <!-- select offer to the director  -->
-                                <div class="section">
-                                  <h4> Select Offer: </h4>
-                                    <label class="field select">
-                                        <select id="language" name="language">
-                                            <option value="">Select The Offer...</option>
-                                            <option value="dev_mobile">dev Mobile</option>
-                                            <option value="dev_app">dev app </option>
-                                        </select>
-                                        <i class="arrow double"></i>
-                                    </label>
+                                <h4> Repeat SecretKey:</h4>
+                                  <label  class="field prepend-icon">
+                                      <input type="password" formControlName="repeatSecret" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.repeatSecret.errors }"
+                                             placeholder="Repeat SecretKey" >
+                                      <span class="field-icon">
+                                        <i class="fa fa-unlock"></i>
+                                      </span>
+                                      <div *ngIf="submitted && f.repeatSecret.errors" class="invalid-feedback">
+                                          <div *ngIf="f.repeatSecret.errors.required" class="text-danger"> [Repeat SecretKey is required] </div>
+                                      </div>
+                                  </label>
                                 </div>
+                            </div>  
 
-                                <!-- files of director -->
-                                <div class="section" id="spy2">
-                                    <h4>Upload File:</h4>
-                                    <label for="file1" class="field prepend-icon file file-fw">
-                                        <span class="button">Choose File</span>
-                                        <input type="file" class="gui-file" name="upload1" id="file1"
-                                               onChange="document.getElementById('uploader1').value = this.value;">
-                                        <input type="text" class="gui-input" id="uploader1" placeholder="File Select">
-                                    </label>
-                                </div>
-                            </div>
 
+                         <!--   select offer to the director  -->
+                            <div class="section">
+                                <h4> Select Offer: </h4>
+                                  <label class="field select">
+                                      <select id="language" name="language">
+                                          <option value="">Select The Offer...</option>
+                                          <option value="dev_mobile">dev Mobile</option>
+                                          <option value="dev_app">dev app </option>
+                                      </select>
+                                      <i class="arrow double"></i>
+                                  </label>
+                              </div>
+
+                              <!-- files of director -->
+                              <div class="section" id="spy2">
+                                  <h4>Upload File:</h4>
+                                  <label for="file1" class="field prepend-icon file file-fw">
+                                      <span class="button">Choose File</span>
+                                      <input type="file" class="gui-file" name="upload1" id="file1"
+                                             onChange="document.getElementById('uploader1').value = this.value;">
+                                      <input type="text" class="gui-input" id="uploader1" placeholder="File Select">
+                                  </label>
+                              </div>
+                    </div> 
+
+                    
                   <div class="panel-footer text-right">
                       <button type="submit" class="btn btn-bordered btn-primary mb5"> Validate Form</button>
                       <button type="reset" class="btn btn-bordered mb5"> Cancel</button>
                     </div>
+                    
           </form>
+
       </div>
     </div>
 </div>

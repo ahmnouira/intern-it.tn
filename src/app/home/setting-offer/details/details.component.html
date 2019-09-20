@@ -1,0 +1,39 @@
+<section id="content" class="animated fadeIn">
+  <div class="row">
+  <div class="col-md-8">
+  <div class="panel" style="border: 2px solid black">
+  <div class="panel-heading">
+  <span class="panel-icon"></span>
+  <span class="panel-title"> {{ Offer.title }} </span>
+  <br>
+  <p class=""> {{Offer.created_at }}</p>
+  </div>
+  <div class="panel-body">
+  <article class=""> Description:
+  <br/>
+  <span class="text-system">{{Offer.description}} </span>
+  </article>
+  <br>
+  <p>Place: <span class="text-system"> {{ Offer.place }} </span></p>
+  <p>Type: <span class="text-system"> {{ Offer.type }} </span></p>
+  <p>Conatct of Director : <span class="text-system"> {{Offer.createdByDirector.email }} </span> </p>
+  <br> 
+  <button type="button" class="btn btn-success"> Like </button>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4">
+  <div class="panel" style="border: 2px solid black">
+  <div class="panel-heading">
+  <span class="panel-icon"></span>
+  <span class="panel-title"> States </span>
+  </div>
+  <div class="panel-body">
+  <p class=""> Views: {{Offer.views}} </p>
+  <p class=""> Likes:  {{ Offer.likes }} </p>
+  <p class=""> Number Of Candidates: {{Offer.nb_candidate_insc}} </p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>

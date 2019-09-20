@@ -16,14 +16,17 @@ const Etudiant = UsersModel.discriminator('candidate', new mongoose.Schema({
     type: Number
   },
 
-  user_offers: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'offers'
-  }],
+  address: {
+    type: String
+  },
 
-  files: [{
+  aboute_me: {
+    type: String
+  },
+
+  offers : [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'file'
+    ref: 'offer'
   }]
 
 }))

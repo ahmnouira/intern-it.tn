@@ -1,0 +1,101 @@
+<section id="content" class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-8 mb40">
+      <div class="tab-block">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#tab1" data-toggle="tab">Profile</a>
+           </li>
+          <li>
+          <a href="#tab2" data-toggle="tab">Activity</a>
+          </li>
+        </ul>
+          <div class="tab-content p30">
+          <div id="tab1" class="tab-pane active">
+          <div class="row">
+          <div class="col-sm-3 col-md-6">
+            <img class="media-object img-responsive" src="" alt="...">
+          </div>
+  <div class="col-sm-9 col-md-6">
+  <h3 class="media-heading fs30 mb20"> {{ director.info.email }} </h3>
+  <p class="fw400">
+  Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+  molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros
+  et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+  delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum
+  soluta nobis eleifend option congue nihil imperdiet doming id quod mazim
+  placerat facer possim assum. </p>
+
+  <ul class="list-inline list-unstyled">
+  <li>
+  <a href="#" title="google plus link">
+  <span class="fa fa-google-plus-square fs35 text-danger"></span>
+  </a>
+  </li>
+  <li>
+  <a href="#" title="facebook link">
+  <span class="fa fa-facebook-square fs35 text-primary"></span>
+  </a>
+  </li>
+  <li>
+  <a href="#" title="pinterest link">
+  <span class="fa fa-pinterest-square fs35 text-danger-light"></span>
+  </a>
+  </li>
+  <li>
+  <a href="#" title="twitter link">
+   <span class="fa fa-twitter-square fs35 text-primary"></span>
+  </a>
+  </li>
+  <li>
+  <a href="#" title="github link">
+  <span class="fa fa-github-square fs35 text-system"></span>
+  </a>
+  </li>
+  <li>
+  <a href="#" title="email link">
+  <span class="fa fa-envelope-square fs35 text-muted"></span>
+  </a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </div>
+  
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4">
+  <div class="panel">
+  <div class="panel-heading">
+  <h4 class="panel-title"> Personal Informations </h4>
+  </div>
+  <div class="panel-body pn pb5">
+  <h6>Email :
+  <span class="text-muted"> &nbsp; {{ director.info.email }} </span></h6>
+
+  <h6 class="">Secret ID:
+  <span class="text-muted"> &nbsp; {{ director.info.secret_id }}
+  </span>
+</h6>
+
+  <h6>Number Offers:
+  <span class="text-muted"> &nbsp;{{ director.info.nb_offers }} </span>
+  </h6>
+
+  <hr class="short br-lighter">
+  <h4> Offers </h4>
+  <div *ngFor="let offer of director.offers">
+  <h4 class="text-center">
+  <a href="/home/setting-offer/offer/{{offer._id}}" target="_blank">{{offer.title}}</a>
+  </h4>
+  <p> Description: <span class="text-muted">{{offer.description}}</span></p>
+  <p> Type: <span class="text-muted"> {{offer.type}}</span></p>
+  <hr class="short br-lighter">
+</div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>

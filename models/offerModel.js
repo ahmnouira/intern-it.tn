@@ -4,6 +4,12 @@ var moment = require('moment');
 
 const offerSchema = mongoose.model('offer', new mongoose.Schema({
 
+
+  createdByDirector: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Director'
+  },
+
   title: {
     // trim: true accep
     type: String, required: true, trim: true
@@ -38,10 +44,10 @@ const offerSchema = mongoose.model('offer', new mongoose.Schema({
     type: Number, 'default': 0
   },
 
-  candidate: [{
+  candidates: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'candidate'
-  }]
+  }] 
 
 }))
 

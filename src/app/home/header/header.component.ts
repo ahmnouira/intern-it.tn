@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  USER : any
+
   constructor() { }
 
-  ngOnInit() {
+  getUserInfo() {
+    this.USER = JSON.parse(localStorage.getItem('userConnected'))
   }
+
+  ngOnInit() {
+    this.getUserInfo();
+    console.log("USER : ", this.USER)
+
+  }
+
+  logout() {
+    localStorage.clear();
+  }
+
+  
 
 }

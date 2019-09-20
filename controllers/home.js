@@ -25,8 +25,8 @@ module.exports = {
           console.log(user);
           const token = user.getToken(req.app.get('SECRET_KEY'))
           switch (user.type) {
-            case 'Director':  res.json({status: "OK", account:user.type, user: {email: user.email, secret_id: user.secret_id, memeber_since: user.created_at, token: token}}); break;
-            case 'candidate': res.json({status: "OK", account:user.type, user: {email: user.email, full_name: user.first_name + " " + user.last_name, memeber_since: user.created_at, token: token}}); break;
+            case 'Director':  res.json({status: "OK", user: { account:user.type, email: user.email, secret_id: user.secret_id, memeber_since: user.created_at, token: token}}); break;
+            case 'candidate': res.json({status: "OK", user: { account:user.type, email: user.email, full_name: user.first_name + " " + user.last_name, memeber_since: user.created_at, token: token}}); break;
             default: res.json({status: "OK", admin: "**** ADMINS****"})
           }
         }
@@ -37,21 +37,21 @@ module.exports = {
       }
 },
 
- auth : function(req, res) {
-  Users.findOne({email: req.body.email} , function(err, user) {
-  if(err) { next(err); }
+    auth : function(req, res) {
+      Users.findOne({email: req.body.email} , function(err, user) {
+      if(err) { next(err); }
 
-  else {
+      else {
 
-    if(user != null) {
-      if (bcrypt.compareSync(req.body.password, user.password)) {
-      const token = jwt.sign({id: user._id}, req.app.get('SECRET_KEY'), {expiresIn: '1h'});
-      res.json({status: 'OK', yout_token: token})
-    } else {
-      res.json({status: "ERROR", msg: "Please verify your password"})
-    }
-  } else {
-    res.json({status: "ERROE", msg: "Invalid email or password"})
+        if(user != null) {
+          if (bcrypt.compareSync(req.body.password, user.password)) {
+          const token = jwt.sign({id: user._id}, req.app.get('SECRET_KEY'), {expiresIn: '1h'});
+          res.json({status: 'OK', yout_token: token})
+        } else {
+          res.json({status: "ERROR", msg: "Please verify your password"})
+        }
+      } else {
+        res.json({status: "ERROE", msg: "Invalid email or password"})
 
   }
   }

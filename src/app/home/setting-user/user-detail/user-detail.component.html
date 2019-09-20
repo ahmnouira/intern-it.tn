@@ -1,0 +1,104 @@
+<section id="content" class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-8 mb40">
+        <div class="tab-block">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#tab1" data-toggle="tab">Profile</a>
+            </li>
+            <li>
+              <a href="#tab2" data-toggle="tab">Activity</a>
+            </li>
+        </ul>
+            <div class="tab-content p30">
+              <div id="tab1" class="tab-pane active">
+                <div class="row">
+                  <div class="col-sm-3 col-md-6">
+                    <img class="media-object img-responsive" src="assets/img/pages/products/1.jpg" alt="...">
+                  </div>
+                    <div class="col-sm-9 col-md-6">
+                      <h3 class="media-heading fs30 mb20"> {{User.first_name}} {{User.last_name}} </h3>
+                       <p class="fw400">
+                        {{User.about_me}} </p>
+                          <ul class="list-inline list-unstyled">
+                          <li>
+                          <a href="#" title="google plus link">
+                          <span class="fa fa-google-plus-square fs35 text-danger"></span>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="#" title="facebook link">
+                          <span class="fa fa-facebook-square fs35 text-primary"></span>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="#" title="pinterest link">
+                          <span class="fa fa-pinterest-square fs35 text-danger-light"></span>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="#" title="twitter link">
+                          <span class="fa fa-twitter-square fs35 text-primary"></span>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="#" title="github link">
+                          <span class="fa fa-github-square fs35 text-system"></span>
+                          </a>
+                          </li>
+                          <li>
+                          <a href="#" title="email link">
+                          <span class="fa fa-envelope-square fs35 text-muted"></span>
+                          </a>
+                          </li>
+                          </ul>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+           </div>
+          <div class="col-md-4">
+            <div class="panel">
+              <div class="panel-heading">
+                <h4 class="panel-title"> Personal Informations </h4>
+              </div>
+              <div class="panel-body pn pb5">
+              <h6>Email :
+              <span class="text-muted"> &nbsp; {{ User.email }} </span></h6>
+  
+  <h6 class="">First Name:
+    <span class="text-muted"> &nbsp;  {{ User.first_name }}
+    </span>
+  </h6>
+  
+    <h6> Last Name:
+    <span class="text-muted"> &nbsp;{{ User.last_name }} </span>
+    </h6>
+
+    <h6>Phone Number:
+      <span class="text-muted">&nbsp; {{ User.tel }} </span> 
+    </h6>
+
+    <h6> Address:
+      <span class="text-muted"> &nbsp; {{ User.address}} </span> 
+    </h6>
+  
+    <hr class="short br-lighter">
+    <h4> Offers Postulated </h4>
+    <div *ngFor="let offer of User.offers">
+    <h4 class="text-center">
+    <a href="/home/setting-offer/offer/{{offer._id}}" target="_blank">
+      {{ offer.title}}
+    </a>
+    </h4>
+    <p> Description: <span class="text-muted">{{ offer.description }}</span></p>
+    <p> Type: <span class="text-muted"> {{ offer.type }}</span></p>
+    <hr class="short br-lighter">
+  </div>
+  
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>

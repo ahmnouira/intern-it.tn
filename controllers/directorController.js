@@ -1,4 +1,5 @@
 const DirectorModel = require('../models/directorModel');
+const OfferModel = require('../models/offerModel');
 
 module.exports = {
 
@@ -8,8 +9,11 @@ post : function(req, res) {
       email: req.body.email,
       password: req.body.password,
       secret_id: req.body.secret_id,
-      offers: req.body.offers,
-      candidate : req.body.candidate
+      //offers: req.body.offers,
+      //candidate : req.body.candidate,
+      about_me: req.body.about_me,
+      //image: req.body.image,
+
     })
 
     director.save(function(err) {
@@ -26,12 +30,18 @@ post : function(req, res) {
 get: function(req, res) {
       // GET one director
       if (req.params.id) {
-      DirectorModel.findOne({_id:req.params.id}).populate({path : 'offers', populate: {path : 'candidate', model:'candidate'}}).exec(function(err, director){
+      // DirectorModel.findOne({_id:req.params.id}).populate({path : 'offers', populate: {path : 'candidate', model:'candidate'}}).exec(function(err, director){
+        DirectorModel.findOne({_id: req.params.id}, function(err, director){
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
         }
-         else {
-        res.json(director);
+        else {
+        OfferModel.find({createdByDirector: director._id}, function(err, offers){
+        if(err) {throw err;}
+        console.log(offers);
+        res.json({'director': {'info' : director, 'offers': offers}});
+      })
+
       }
       })
 }
