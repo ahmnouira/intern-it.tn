@@ -25,6 +25,10 @@ const Director = UsersModel.discriminator('Director', new mongoose.Schema({
   type:Number, 'default': 0
 },
 
+company : {
+  type: String
+},
+
 /*  offers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'offer',

@@ -11,7 +11,8 @@ post : function(req, res) {
       type: req.body.type,
       candidates: req.body.candidate,
       createdByDirector: req.body.directorId,
-      place: req.body.place
+      place: req.body.place,
+      company : req.body.company
     })
 
     offer.save(function(err) {
@@ -26,7 +27,7 @@ post : function(req, res) {
 
 get: function(req, res) {
       if (req.params.id) {
-        OfferModel.findOne({_id:req.params.id}).populate('createdByDirector', '_id email secret_id nb_offers').populate('candidates', '_id first_name last_name email tel').exec(function(err, offer){
+        OfferModel.findOne({_id:req.params.id}).sort('-created_at').populate('createdByDirector', '_id email secret_id nb_offers').populate('candidates', '_id first_name last_name email tel').exec(function(err, offer){
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
         } else {
@@ -35,7 +36,7 @@ get: function(req, res) {
     })
 
     } else {
-      OfferModel.find({}).populate('createdByDirector').populate('candidates').exec(function(err, offers){
+      OfferModel.find({}).sort('-created_at').populate('createdByDirector').populate('candidates').exec(function(err, offers){
         //console.log(offers);
         if (err){
         res.json({status: "error", msg: "vous avez un erreur"  + err })
@@ -67,9 +68,6 @@ delete: function(req, res){
     }
   },
 
-
-
-
   put : function(req, res) {
 
     OfferModel.findOne({_id:req.params.id}, function(err, offer){
@@ -93,6 +91,9 @@ delete: function(req, res){
   });
   
   },
+
+
+
 
 /*
 addCandidate: function(req, res) {

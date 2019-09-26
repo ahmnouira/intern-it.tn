@@ -1,0 +1,227 @@
+<div id="top" class="overlay unit-5" style="background-image: url('assets/images/hero_bg_2.jpg');" >
+  <div class="container text-center">
+    <h2 class="mb-0"> Sign in </h2>
+    <h4 class="mb-0"><a routerLink="/log-in"> Log in </a></h4>
+  </div>
+</div>
+
+<div class="site-section bg-light">
+  <div class="container">
+   
+
+  <div class="mx-auto" style="width: 700px">
+
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active py-3" data-toggle="tab" href="#user"><span class="text-dark font-weight-bold"> User  </span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link py-3" data-toggle="tab" href="#director" ><span class="text-dark font-weight-bold"> Director </span></a>
+          </li>
+      </ul>
+
+    <div class="tab-content p-5 bg-white rounded">
+      
+      <div id="user" class="tab-pane active show fade" >
+        
+        <form [formGroup]="userForm" (ngSubmit)="addUser()">
+
+
+
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label class="font-weight-bold" for="first_name">First Name: </label>
+              <input type="text" id="first_name" formControlName="first_name" class="form-control" placeholder="First Name..." required autofocus>
+
+            </div>
+
+            <div class="col-md-6">
+                <label class="font-weight-bold" for="last_name"> Last Name: </label>
+                <input type="text" id="last_name" formControlName="last_name" class="form-control" placeholder="Last Name..." required>
+            </div>
+
+
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label class="font-weight-bold" for="password"> Password:  </label>
+              <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password..." required>
+            </div>
+            <div class="col-md-6">
+              <label class="font-weight-bold" for="repeatPassword"> Repeat Password: </label>
+              <input type="password" id="repeatPassword" formControlName="repeatPassword" class="form-control" placeholder="Repeat Password...">
+            </div>
+          </div>
+
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="font-weight-bold" for="email" > Email: </label>
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email Address..." required>
+            </div> 
+          </div>
+
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="font-weight-bold" for="tel" >Phone Number: </label>
+              <input type="tel" id="tel" formControlName="tel" class="form-control" placeholder="Phone Number...">
+            </div>
+          </div>
+
+
+          <div class="row form-group">
+              <div class="col-md-12">
+                <label class="font-weight-bold" for="address" >Address: </label>
+                <input type="text" id="tel" class="form-control" placeholder="Address...">
+              </div>
+          </div>
+          
+
+        <div class="row form-group"></div>
+
+        
+          <div class="row form-group">
+            <div class="col-md-12">
+              <button type="submit" value="Send" class="btn btn-primary py-2 px-4"> Sign In </button>
+            </div>
+          </div>
+
+        </form>
+     
+  </div>
+
+
+  <div id="director" class="tab-pane fade">
+        
+      <form [formGroup]="directorForm" (ngSubmit)="addDirector()">
+
+          <div class="row form-group">
+              <div class="col-md-12">
+                <label class="font-weight-bold" for="email" > Email: </label>
+                <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email Address..." required autofocus>
+              </div> 
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-6">
+                  <label class="font-weight-bold" for="password"> Password:  </label>
+                  <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password..." required>
+                </div>
+                <div class="col-md-6">
+                  <label class="font-weight-bold" for="repeatPassword"> Repeat Password: </label>
+                  <input type="password" id="repeatPassword" formControlName="repeatPassword" class="form-control" placeholder="Repeat Password...">
+                </div>
+              </div>
+        
+        <div class="row form-group">
+            <div class="col-md-6">
+              <label class="font-weight-bold" for="secret_key">Secret Key: </label>
+              <input type="text" id="secret_key" formControlName="secret_id" class="form-control" placeholder="Secret Key..." required>
+
+            </div>
+
+            <div class="col-md-6">
+                <label class="font-weight-bold"> Repeat Secret Key: </label>
+                <input type="text" formControlName="repeatSecret" class="form-control" placeholder="Repeat Secret key...">
+            </div>
+        </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <button type="submit" value="Send" class="btn btn-primary py-2 px-4"> Sign In </button>
+            </div>
+          </div>
+      </form>   
+  </div>
+
+  
+</div>
+</div>
+</div>
+</div>
+
+
+<footer class="site-footer">
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="row">
+            <div class="col-6 col-md-3 col-lg-3 mb-5 mb-lg-0">
+              <h3 class="footer-heading mb-4">For Candidates</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Find Jobs</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Search Jobs</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-3 col-lg-3 mb-5 mb-lg-0">
+              <h3 class="footer-heading mb-4">For Employers</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Employer Account</a></li>
+                <li><a href="#">Clients</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Find Candidates</a></li>
+                <li><a href="#">Terms &amp; Policies</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-3 col-lg-3 mb-5 mb-lg-0">
+              <h3 class="footer-heading mb-4">Archives</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">January 2018</a></li>
+                <li><a href="#">February 2018</a></li>
+                <li><a href="#">March 2018</a></li>
+                <li><a href="#">April 2018</a></li>
+                <li><a href="#">May 2018</a></li>
+                <li><a href="#">June 2918</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-3 col-lg-3 mb-5 mb-lg-0">
+              <h3 class="footer-heading mb-4">Company</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Terms &amp; Policies</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <h3 class="footer-heading mb-4">Contact Info</h3>
+          <ul class="list-unstyled">
+            <li>
+              <span class="d-block text-white">Address</span>
+              New York - 2398 10 Hadson Carl Street
+            </li>
+            <li>
+              <span class="d-block text-white">Telephone</span>
+              +1 232 305 3930
+            </li>
+            <li>
+              <span class="d-block text-white">Email</span>
+              info@yourdomain.com
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+      <div class="row pt-5 mt-5 text-center">
+        <div class="col-md-12">
+          <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </footer>

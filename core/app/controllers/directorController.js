@@ -13,6 +13,7 @@ post : function(req, res) {
       //candidate : req.body.candidate,
       about_me: req.body.about_me,
       //image: req.body.image,
+      //company = req.body.company
 
     })
 

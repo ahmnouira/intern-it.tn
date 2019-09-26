@@ -2,12 +2,10 @@
 <div class="unit-5 overlay" style="background-image: url('assets/images/hero_bg_2.jpg');">
   <div class="container text-center">
     <h2 class="mb-0">Post a Job</h2>
-    <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
+    <!-- href: will reload the page, routerLink: go to the specific page without loading-->
+    <h4 class="mb-0 unit-6"><a routerLink="/home">Home</a> <span class="sep">></span><a href="/home/post-offer">Post a Job</a></h4>  
   </div>
 </div>
-
-
-
 
 <div class="site-section bg-light">
   <div class="container">
@@ -17,73 +15,85 @@
       
         
       
-        <form action="#" class="p-5 bg-white">
+        <form [formGroup]="postForm" (ngSubmit)="addOffer()" class="p-5 bg-white">
           
+          <p class="text-danger font-weight-bold">Only Directors Can Post Offers</p>
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-price-1">
-                <input type="checkbox" id="option-price-1"> <span class="text-success">$300</span> For 30 days
+              <label>
+                <input type="checkbox"> For 30 days / 1 Month
               </label>
             </div>
+
             <div class="col-md-12 mb-3 mb-md-0">
               <label for="option-price-2">
-                <input type="checkbox" id="option-price-2"> <span class="text-success">$200</span> / Monthly Recurring
+                <input type="checkbox" id="option-price-2"> 2 Months
               </label>
             </div>
           </div>
 
+          <div class="row form-group">
+            <div class="col-md-6 mb-3">
+              <label class="font-weight-bold" for="fullname">Sercret ID: </label>
+              <input type="text" class="form-control" placeholder="Secret ID">
+            </div>
 
-          
+            <div class="col-md-6 mb-3">
+              <label class="font-weight-bold" for="fullname">Email:</label>
+              <input type="text"  class="form-control" placeholder="Email">
+            </div>
+            
+          </div>
+
+
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="font-weight-bold" for="fullname">Job Title</label>
-              <input type="text" id="fullname" class="form-control" placeholder="eg. Full Stack Frontend">
+              <label class="font-weight-bold" for="fullname">Offer Title</label>
+              <input type="text" formControlName="title" class="form-control" placeholder="eg. Full Stack Frontend">
             </div>
           </div>
 
           <div class="row form-group mb-5">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="font-weight-bold" for="fullname">Company</label>
-              <input type="text" id="fullname" class="form-control" placeholder="eg. Facebook, Inc.">
+              <input type="text" class="form-control" placeholder="eg. Facebook, Inc.">
             </div>
           </div>
-
-          
+ 
           <div class="row form-group">
             <div class="col-md-12"><h3>Job Type</h3></div>
 
             <div class="col-md-12 mb-3 mb-md-0">
-              <label for="option-job-type-1">
-                <input type="radio" id="option-job-type-1" name="job-type"> Full Time
+              <label>
+                <input type="radio" formControlName="type" value="PFE"> PFE
               </label>
             </div>
 
             <div class="col-md-12 mb-3 mb-md-0">
               <label for="option-job-type-2">
-                <input type="radio" id="option-job-type-2" name="job-type"> Part Time
+                <input type="radio" formControlName="type" value="Internship" > Internship
               </label>
             </div>
-
-            </div>
+          </div>
             
           
           <div class="row form-group mb-4">
             <div class="col-md-12"><h3>Location</h3></div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <input type="text" class="form-control" placeholder="New York City">
+              <input type="text" formControlName="place" class="form-control" placeholder="New York City">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12"><h3>Job Description</h3></div>
             <div class="col-md-12 mb-3 mb-md-0">
-              <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+              <textarea name="" formControlName="description" class="form-control" id="" cols="30" rows="5"></textarea>
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
-              <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
+              <button type="submit" class="btn btn-primary  py-2 px-5"> Submit </button>
             </div>
           </div>
 
@@ -95,13 +105,13 @@
         <div class="p-4 mb-3 bg-white">
           <h3 class="h5 text-black mb-3">Contact Info</h3>
           <p class="mb-0 font-weight-bold">Address</p>
-          <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+          <p class="mb-4">C2 Manzel Farsi, Monastir 5000, Tunisia</p>
 
           <p class="mb-0 font-weight-bold">Phone</p>
-          <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+          <p class="mb-4"><a href="#">+214 24 272 897</a></p>
 
           <p class="mb-0 font-weight-bold">Email Address</p>
-          <p class="mb-0"><a href="#">youremail@domain.com</a></p>
+          <p class="mb-0"><a href="mailto:ahmnouira@gmail.com">ahmnouira@gmail.com</a></p>
 
         </div>
         
@@ -111,11 +121,6 @@
           <p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>
         </div>
       </div>
-    
-
-
-  
-  
   </div>
     </div>
   </div>

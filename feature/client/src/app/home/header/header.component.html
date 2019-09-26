@@ -4,30 +4,28 @@
     <div class="row align-items-center">
       
       <div class="col-6 col-xl-2">
-        <h1 class="mb-0"><a href="/home" class="text-black h2 mb-0">Job<strong>start</strong></a></h1>
+        <h1 class="mb-0"><a href="/home" class="text-black h2 mb-0">Career<strong>Start</strong></a></h1>
       </div>
 
       <div class="col-10 col-xl-10 d-none d-xl-block">
         <nav class="site-navigation text-right" role="navigation">
 
           <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-            <li class="active"><a href="home">Home</a></li>
+            <li class="active"><a routerLink="/home">Home</a></li>
 
             <li class="has-children">
-              <a href="/home/category">Category</a>
+              <a routerLink="/home/category">Category</a>
               <ul class="dropdown">
-                <li><a href="#">Full Time</a></li>
-                <li><a href="#">Part Time</a></li>
-                <li><a href="#">Freelance</a></li>
-                <li><a href="#">Internship</a></li>
-                <li><a href="#">Termporary</a></li>
+                <li><a href="#"> PFE </a></li>
+                <li><a href="#"> Internship </a></li>
               </ul>
             </li>
-
-            <li><a href="/home/offers">Blog</a></li>
-            <li><a href="/home/about">About</a></li>
-            <li class="active"><a href="/home/contact">Contact</a></li>
-            <li><a href="/home/post-offer"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Post a Job</span></a></li>
+            
+            <li><a routerLink="/home/offers">Offers</a></li>
+            <li><a routerLink="/home/about">About</a></li>
+            <li class=""><a routerLink="/home/contact">Contact</a></li>
+            <li class=""><a routerLink="/log-in" (click)="logout()"> Logout </a></li>
+            <li *ngIf="Director==='Director'"><a routerLink="/home/post-offer"><span class="rounded bg-danger py-2 px-3 text-white"><span class="h5 mr-2">+</span> Post a Job</span></a></li>
           </ul>
         </nav>
       </div>

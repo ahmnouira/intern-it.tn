@@ -24,6 +24,10 @@ const Etudiant = UsersModel.discriminator('candidate', new mongoose.Schema({
     type: String
   },
 
+  state : {
+    type: Boolean , default : false
+  },
+
   offers : [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'offer'

@@ -4,6 +4,16 @@
 
 * This my project: ITgate 2019 internship, :a: platform to publish interns & offers.
 
+# Overview: Client Page Feature
+
+![home](/img/feature/client/home.png)
+
+![log_in](/img/feature/client/log_in.png)
+
+![sign-in](/img/feature/client/sign-in.png)
+
+![post-offer](/img/feature/client/post-offer.png)
+
 # Overview: Admin Page Feature
 
 ![login](/img/feature/admin/login.png)
@@ -29,9 +39,14 @@
 
 1. open your Terminal and run `mongod --port 3333`
 
-## run the **Front-End** app 
+## run the **Front-End** application **Admin Page**
 
 * nagivate to `feature/admin`
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## run the **Front-End** application **Client Page**
+
+* nagivate to `feature/client`
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### 1.Build

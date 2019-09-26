@@ -1,6 +1,6 @@
 // import mongoose
 var mongoose = require('mongoose');
-var moment = require('moment');
+//var moment = require('moment');
 
 const offerSchema = mongoose.model('offer', new mongoose.Schema({
 
@@ -25,7 +25,7 @@ const offerSchema = mongoose.model('offer', new mongoose.Schema({
   },
 
   created_at: {
-      type:String, 'default': moment().format('MMMM Do YYYY, h:mm:ss a')
+      type:Date, 'default': Date.now 
   },
 
   views: {
@@ -47,7 +47,11 @@ const offerSchema = mongoose.model('offer', new mongoose.Schema({
   candidates: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'candidate'
-  }] 
+  }], 
+  
+  company : {
+    type: String
+  }
 
 }))
 

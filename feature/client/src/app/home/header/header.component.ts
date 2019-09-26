@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderHomeComponent implements OnInit {
 
-  constructor() { }
+  Director: string
+
+  constructor() {
+          this.Director = JSON.parse(localStorage.getItem('user')).account
+   }
 
   ngOnInit() {
+
   }
+
+
+  logout() {
+    localStorage.clear();
+  }
+
+
 
 }

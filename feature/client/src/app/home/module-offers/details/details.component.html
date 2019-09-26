@@ -1,0 +1,75 @@
+<div class="unit-5 overlay" style="background-image: url('assets/images/hero_bg_2.jpg');">
+  <div class="container text-center">
+    <h2 class="mb-0">{{ Offer.title }} </h2>
+    <h4 class="mb-0 unit-6"><a routerLink="/home">Home</a><span class="sep">></span><a href="/home/offers"><span>Offers</span></a></h4>
+  </div>
+</div>
+
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row">
+   
+      <div class="col-md-12 col-lg-8 mb-5">
+      
+        
+      
+        <div class="p-5 bg-white">
+
+          <div class="mb-4 mb-md-5 mr-5">
+           <div class="job-post-item-header d-flex align-items-center">
+             <h2 class="mr-3 text-black h4">{{ Offer.title }} </h2>
+             <div class="badge-wrap">
+              <span class="{{Offer.type == 'PFE' ? 'bg-danger' : 'bg-warning'}} text-white badge py-2 px-4">{{ Offer.type }} </span>
+             </div>
+           </div>
+           <div class="job-post-item-body d-block d-md-flex">
+             <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#"> New York Times </a></div>
+             <div><span class="fl-bigmug-line-big104"></span> <span> {{ Offer.place }} </span></div>
+           </div>
+          </div>
+          
+          <p>{{ Offer.description }}</p>
+          
+          <!-- <ul class="mt-5 text-right">
+            <li><button class="btn btn-primary  py-2 px-4"> Apply </button></li>
+            <li><button class="btn btn- py-2 px-4"> Like </button></li> 
+          </ul> -->
+
+
+
+          <div class="row">
+            <div class="col-md-6">
+
+              <!-- handler with ajax calls -->
+              <button class="mt-5 btn btn-success py-2 px-4 font-weight-bold" id="btn-like" data-id="{{ Offer.id }}"><i class="fas fa-heart"></i> Like </button>
+
+               </div>
+
+               <!-- with AJAX class -->
+               <div class="col-md-6 text-right">
+                 <button class="mt-5 btn btn-primary py-2 px-4 font-weight-bold" id="btn-delete" data-id="{{ Offer.id }}"><i class="fas fa-times"> Apply </i></button>
+                </div>
+
+             </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        
+        
+        <div class="p-4 mb-3 bg-white">
+          <h3 class="h4 text-black mb-3"> More Info </h3>
+          <p> Views: &nbsp; {{ Offer.views }} </p>
+          <p> Likes: &nbsp; {{ Offer.likes }} </p>
+          <p> Posted: &nbsp; {{ Offer.created_at }} </p>
+          <p> nb_insc: &nbsp; {{ Offer.nb_candidate_insc }}</p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+

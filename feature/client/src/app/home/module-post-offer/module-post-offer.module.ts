@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { ModulePostOfferRoutingModule } from './module-post-offer-routing.module';
 import { PostOfferComponent } from './post-offer/post-offer.component';
@@ -8,7 +9,9 @@ import { PostOfferComponent } from './post-offer/post-offer.component';
   declarations: [PostOfferComponent],
   imports: [
     CommonModule,
-    ModulePostOfferRoutingModule
+    ModulePostOfferRoutingModule,
+    ReactiveFormsModule, 
+    FormsModule
   ]
 })
 export class ModulePostOfferModule { }
